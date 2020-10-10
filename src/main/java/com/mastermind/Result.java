@@ -1,22 +1,22 @@
 package com.mastermind;
 
 public class Result {
+	public static final int WIDTH = 4;
+	private int blacks =0;
+	private int whites =0; // Aciertos parciales
 
-	private Integer blacks;
-	private Integer whites;
-
-	public Result(Integer blacks, Integer whites) {
-		super();
+	public Result(int blacks, int whites) {
 		this.blacks = blacks;
 		this.whites = whites;
 	}
 
-	public void print() {
-		System.out.println(" ---> " + blacks + " blacks and " + whites + " whites");
+	@Override
+	public String toString() {
+		return blacks + " blacks and " + whites + " whites";
 	}
 
-	public boolean isWinner() {
-		return this.blacks == 4;
+	boolean isWinner() {
+		return this.blacks == Result.WIDTH;
 	}
 
 }

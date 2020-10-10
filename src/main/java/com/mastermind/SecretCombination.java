@@ -3,36 +3,48 @@ package com.mastermind;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import com.utils.Console;
 
 public class SecretCombination extends Combination {
 
-	public SecretCombination() {
-		this.combination = this.createRandomCombination();
-	}
+  SecretCombination() {
+    super();
 
-	public void calculateResult(
-			ProposedCombination proposedCombination) {
-		Integer blacks = proposedCombination.calculateBlacks(this);
-		Integer whites = proposedCombination.calculateWhites(this) - blacks;
+    Random random = new Random();
+    List<Color> randomColorCombination = new ArrayList<Color>();
 
-		proposedCombination.setResult(new Result(blacks, whites));
-	}
+    while (randomColorCombination.size() < 4) {
+      Color c = Color.values()[random.nextInt(Color.values().length)];
+      if (!randomColorCombination.contains(c)) {
+        randomColorCombination.add(c);
+      }
+    }
 
-	public void print() {
-		System.out.println(this.combination.toString().replaceAll("[A-Z]", "*"));
-	}
+    this.colors = randomColorCombination;
 
-	private List<Color> createRandomCombination() {
-		Random random = new Random();
-		List<Color> randomCombination = new ArrayList<Color>();
+  }
 
-		while (randomCombination.size() < 4) {
-			Color c = Color.values()[random.nextInt(
-					Color.values().length)];
-			if (!randomCombination.contains(c)) {
-				randomCombination.add(c);
-			}
-		}
-		return randomCombination;
-	}
+  Result getResult(ProposedCombination proposedCombination) {
+    int blacks = 0;
+    for (int i = 0; i < this.colors.size(); i++) {
+      if (proposedCombination.contains(this.colors.get(i), i)) {
+        blacks++;
+      }
+    }
+    int whites = 0;
+    for (Color color : this.colors) {
+      if (proposedCombination.contains(color)) {
+        whites++;
+      }
+    }
+    return new Result(blacks, whites - blacks);
+  }
+
+  void writeln() {
+    Console.instance().write("**** - ");
+    this.colors.forEach(System.out::print);
+
+    Console.instance().writeln();
+  }
+
 }

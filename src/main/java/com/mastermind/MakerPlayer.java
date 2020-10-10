@@ -1,24 +1,35 @@
 package com.mastermind;
 
-public class MakerPlayer {
-	private SecretCombination secretCombination;
-	private BreakerPlayer breakerPlayer;
+public class MakerPlayer implements Player {
+  protected Board board;
 
-	public MakerPlayer(BreakerPlayer breakerPlayer) {
-		this.breakerPlayer = breakerPlayer;
-	}
+  public MakerPlayer(Board board) {
+    assert board != null;
+    this.board = board;
+  }
 
-	public SecretCombination generateCombination() {
-		this.secretCombination = new SecretCombination();
-		return this.secretCombination;
-	}
 
-	public void answer() {
-		this.secretCombination.calculateResult(this.breakerPlayer.getLastCombination());
-		this.breakerPlayer.addAttempts();
-	}
+  @Override
+  public void play() {
+    ProposedCombination proposed = this.board.getLastProposed();
+    SecretCombination secret = this.board.getSecret();
 
-	public void printCombination() {
-		this.secretCombination.print();
-	}
+    Result result = getResponse(proposed, secret);
+
+    this.board.putResult(result);
+
+  }
+
+  public void generateSecret() {
+    SecretCombination secret = new SecretCombination();
+    this.board.setSecret(secret);
+    secret.writeln();
+
+  }
+
+  protected Result getResponse(ProposedCombination proposed, SecretCombination secret) {
+    return secret.getResult(proposed);
+
+  }
+
 }

@@ -1,48 +1,49 @@
 package com.mastermind;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.utils.YesNoDialog;
 
 public class Mastermind {
+  static final int NUMBER_PLAYERS = 2;
 
-	static final String TITLE = "----- MASTERMIND -----";
-	static MakerPlayer makerPlayer;
-	static BreakerPlayer breakerPlayer;
+  private Board board;
+  protected BreakerPlayer breakerPlayer;
+  protected MakerPlayer makerPlayer;
 
-	public static void play() {
-		breakerPlayer = new BreakerPlayer();
-		makerPlayer = new MakerPlayer(breakerPlayer);
-		System.out.println(TITLE);
-		makerPlayer.generateCombination();
-		makerPlayer.printCombination();
+  public void play() {
+    do {
+      this.playGame();
+    } while (this.isResumedGame());
+  }
 
-		while (breakerPlayer.hasAttempts() && !breakerPlayer.isLooser() && !breakerPlayer.isWinner()) {
-			breakerPlayer.generateCombination();
-			makerPlayer.answer();
-			breakerPlayer.printAttempts();
-			makerPlayer.printCombination();
-			breakerPlayer.printCombination();
-		}
-		if (breakerPlayer.isWinner()) {
-			System.out.println("You've won!!! ;-)");
-		} else {
-			System.out.println("You've lost!!! :-(");
-		}
-	}
+  private void playGame() {
+    this.board = new Board();
+    this.breakerPlayer = new BreakerPlayer(board);
+    this.makerPlayer = new MakerPlayer(board);
+    this.makerPlayer.generateSecret();
 
-	public static void main(String[] args) {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String restart = "y";
+    this.board.printNumberOfTries();
+    do {
+      this.breakerPlayer.play();
+      this.makerPlayer.play();
 
-		while (restart.equals("y")) {
-			play();
-			System.out.println("Do you want to continue? (y/n):");
-			try {
-				restart = br.readLine();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
+      this.board.write();
+
+    } while (!this.board.isFinished());
+
+    Message message = Message.LOOSER;
+    if (this.board.isWinner()) {
+      message = Message.WINNER;
+    }
+    message.writeln();
+  }
+
+
+  public static void main(String[] args) {
+    new Mastermind().play();
+  }
+
+  private boolean isResumedGame() {
+    return new YesNoDialog().read(Message.RESUME.toString());
+  }
+
 }
