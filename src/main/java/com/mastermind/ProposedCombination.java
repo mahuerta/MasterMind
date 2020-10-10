@@ -1,11 +1,8 @@
 package com.mastermind;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.utils.Console;
 
 public class ProposedCombination extends Combination {
-
 
   public ProposedCombination() {
     super();
@@ -25,36 +22,32 @@ public class ProposedCombination extends Combination {
   }
 
   public void read() {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     String proposedCombination = "";
-
-    while (!this.isValidCombination(proposedCombination)) {
-      System.out.println("Propose a combination:");
-      try {
-        proposedCombination = br.readLine();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    }
+    do {
+      Message.PROPOSED_COMBINATION.writeln();
+      proposedCombination = Console.instance().readString();
+    } while (!this.isValidCombination(proposedCombination));
   }
 
   private boolean isValidCombination(String proposedCombination) {
     String[] proposedCombinationArr = proposedCombination.split("");
     if (proposedCombinationArr.length != 4) {
-      System.out.println("Wrong proposed combination length");
+      Error.WRONG_LENGTH.writeln();
       return false;
     } else {
       for (int i = 0; i < proposedCombinationArr.length; i++) {
         if (this.isValidColor(proposedCombinationArr[i])) {
           if (this.isRepeatedColor(proposedCombinationArr[i])) {
-            System.out.println("Repeated colors");
+            Error.DUPLICATED.writeln();
             this.colors.removeAll(this.colors);
             return false;
           } else {
             this.colors.add(Color.valueOf(proposedCombinationArr[i].toUpperCase()));
           }
         } else {
-          System.out.println("Wrong colors, they must be: " + printColors());
+          Error.WRONG_CHARACTERS.writeln();
+          Color.println();
+
           this.colors.removeAll(this.colors);
           return false;
         }
@@ -78,12 +71,10 @@ public class ProposedCombination extends Combination {
     return this.colors.contains(Color.valueOf(proposedColor.toUpperCase()));
   }
 
-  private String printColors() {
-    String colors = "";
-    for (Color color : Color.values()) {
-      colors += color.toString();
+  public void write() {
+    for (Color color : this.colors) {
+      Console.instance().write(color.toString());
     }
-    return colors;
   }
 
 }

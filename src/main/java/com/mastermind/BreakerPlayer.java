@@ -12,9 +12,6 @@ public class BreakerPlayer implements Player {
   public void play() {
     this.board.putProposed(new ProposedCombination());
     this.board.getLastProposed().read();
-
   }
-
-
 
 }

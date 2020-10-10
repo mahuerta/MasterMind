@@ -3,10 +3,16 @@ package com.mastermind;
 import com.utils.Console;
 
 enum Message {
-  ATTEMPTS("#attempts attempt(s): "), SECRET("*"), RESUME("Do you want to continue"), RESULT(
-      " --> #blacks blacks and #whites whites"), PROPOSED_COMBINATION(
-          "Propose a combination: "), TITLE(
-              "----- MASTERMIND -----"), WINNER("You've won!!! ;-)"), LOOSER("You've lost!!! :-(");
+  ATTEMPTS("#attempts attempt(s): "), 
+  SECRET("*"), 
+  RESUME("Do you want to continue"), 
+  RESULT(" --> #blacks blacks and #whites whites"), 
+  PROPOSED_COMBINATION("Propose a combination: "), 
+  TITLE("----- MASTERMIND -----"), 
+  WINNER("You've won!!! ;-)"), 
+  LOOSER("You've lost!!! :-("),
+  LEFT_ARROW("---> "); 
+
 
   private String message;
 

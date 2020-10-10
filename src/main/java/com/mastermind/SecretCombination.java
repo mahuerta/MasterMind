@@ -31,19 +31,20 @@ public class SecretCombination extends Combination {
         blacks++;
       }
     }
+
     int whites = 0;
     for (Color color : this.colors) {
       if (proposedCombination.contains(color)) {
         whites++;
       }
     }
+
     return new Result(blacks, whites - blacks);
   }
 
   void writeln() {
-    Console.instance().write("**** - ");
+    Message.SECRET.write();
     this.colors.forEach(System.out::print);
-
     Console.instance().writeln();
   }
 

@@ -1,8 +1,5 @@
 package com.mastermind;
 
-import java.util.Arrays;
-import com.utils.Console;
-
 public class Board {
 
   private static final int MAX_ATTEMPTS = 10;
@@ -11,20 +8,20 @@ public class Board {
   private ProposedCombination[] proposedCombinations;
   private Result[] results;
 
-  private int numberOfTries;
+  private int attemps;
 
   Board() {
     this.secretCombination = new SecretCombination();
     this.proposedCombinations = new ProposedCombination[Board.MAX_ATTEMPTS];
     this.results = new Result[Board.MAX_ATTEMPTS];
-    numberOfTries = 0;
+    attemps = 0;
   }
 
   void write() {
-    for (int j = 0; j < numberOfTries; j++) {
-      Console.instance()
-          .write(Arrays.toString(this.proposedCombinations[j].getColors()) + " ---> ");
-      Console.instance().writeln(this.results[j].toString());
+    for (int j = 0; j < attemps; j++) {
+      this.proposedCombinations[j].write();
+      Message.LEFT_ARROW.write();
+      this.results[j].writeln();
     }
   }
 
@@ -33,24 +30,24 @@ public class Board {
   }
 
   public boolean isWinner() {
-    return this.results[this.numberOfTries - 1].isWinner();
+    return this.results[this.attemps - 1].isWinner();
   }
 
   private boolean isLooser() {
-    return this.numberOfTries == Board.MAX_ATTEMPTS;
+    return this.attemps == Board.MAX_ATTEMPTS;
   }
 
   public void putProposed(ProposedCombination proposedCombination) {
-    this.proposedCombinations[this.numberOfTries] = proposedCombination;
+    this.proposedCombinations[this.attemps] = proposedCombination;
   }
 
   public void putResult(Result result) {
-    this.results[this.numberOfTries] = result;
-    numberOfTries = numberOfTries + 1;
+    this.results[this.attemps] = result;
+    attemps = attemps + 1;
   }
 
   public ProposedCombination getLastProposed() {
-    return this.proposedCombinations[this.numberOfTries];
+    return this.proposedCombinations[this.attemps];
   }
 
   public SecretCombination getSecret() {
@@ -62,7 +59,8 @@ public class Board {
   }
 
   public void printNumberOfTries() {
-    Console.instance().writeln(numberOfTries + " attempt(s):");
+    Message message = Message.ATTEMPTS;
+    message.writeln(attemps);
   }
 
 }

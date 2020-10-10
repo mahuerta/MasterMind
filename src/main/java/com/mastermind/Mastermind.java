@@ -16,16 +16,17 @@ public class Mastermind {
   }
 
   private void playGame() {
+    Message.TITLE.writeln();
+
     this.board = new Board();
     this.breakerPlayer = new BreakerPlayer(board);
     this.makerPlayer = new MakerPlayer(board);
     this.makerPlayer.generateSecret();
 
-    this.board.printNumberOfTries();
     do {
+      this.board.printNumberOfTries();
       this.breakerPlayer.play();
       this.makerPlayer.play();
-
       this.board.write();
 
     } while (!this.board.isFinished());
