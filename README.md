@@ -16,8 +16,6 @@ Puedes encontrar más información en los siguientes enlaces:
 **[Wiki Mastermind](https://en.wikipedia.org/wiki/Mastermind_(board_game))**
 
 **[Como se juega a Mastermind](https://www.youtube.com/watch?v=2-hTeg2M6GQ)**
-* Youtube: https://www.youtube.com/watch?v=2-hTeg2M6GQ
-
 
 > Requisitos práctica Mastermind
 - [x] domainModel
