@@ -1,1 +1,0 @@
-Estarán los demás diagramas.
