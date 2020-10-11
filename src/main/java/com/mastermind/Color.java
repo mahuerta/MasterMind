@@ -2,29 +2,49 @@ package com.mastermind;
 
 import com.utils.Console;
 
-public enum Color {
-  R, // Red
-  B, // Blue
-  Y, // Yellow
-  G, // Green
-  O, // Orange
-  P; // Purple
+enum Color {
+  RED('r'), BLUE('b'), YELLOW('y'), GREEN('g'), ORANGE('o'), PURPLE('p'), NULL_COLOR;
 
-  public static String getColorsCombination() {
-    String colors = "";
-    for (Color color : Color.values()) {
-      colors += color.toString();
-    }
-    return colors;
+  private char initial;
+
+  private Color() {}
+
+  private Color(char initial) {
+    this.initial = initial;
   }
 
-  public static void writeln() {
-    String colors = "";
-    for (Color color : Color.values()) {
-      colors += color.toString();
+  static String getInitials() {
+    String result = "";
+    for (int i = 0; i < Color.length(); i++) {
+      result += Color.get(i).initial;
     }
-
-    Console.instance().write(colors);
-
+    return result;
   }
+
+  static Color getInstance(char character) {
+    for (int i = 0; i < Color.length(); i++) {
+      if (Color.get(i).initial == character) {
+        return Color.get(i);
+      }
+    }
+    return Color.NULL_COLOR;
+  }
+
+  static int length() {
+    return Color.values().length - 1;
+  }
+
+  static Color get(int index) {
+    return Color.values()[index];
+  }
+
+  void write() {
+    assert this != Color.NULL_COLOR;
+    new Console().write(this.initial);
+  }
+
+  boolean isNull() {
+    return this == Color.NULL_COLOR;
+  }
+
 }

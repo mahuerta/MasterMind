@@ -3,11 +3,8 @@ package com.mastermind;
 import com.utils.YesNoDialog;
 
 public class Mastermind {
-  static final int NUMBER_PLAYERS = 2;
 
   private Board board;
-  protected BreakerPlayer breakerPlayer;
-  protected MakerPlayer makerPlayer;
 
   public void play() {
     do {
@@ -17,20 +14,14 @@ public class Mastermind {
 
   private void playGame() {
     Message.TITLE.writeln();
-
     this.board = new Board();
-    this.breakerPlayer = new BreakerPlayer(board);
-    this.makerPlayer = new MakerPlayer(board);
-    this.makerPlayer.generateSecret();
-
+    this.board.writeln();
     do {
-      this.board.printNumberOfTries();
-      this.breakerPlayer.play();
-      this.makerPlayer.play();
-      this.board.write();
-
+      ProposedCombination proposedCombination = new ProposedCombination();
+      proposedCombination.read();
+      this.board.add(proposedCombination);
+      this.board.writeln();
     } while (!this.board.isFinished());
-
     Message message = Message.LOOSER;
     if (this.board.isWinner()) {
       message = Message.WINNER;
@@ -38,13 +29,12 @@ public class Mastermind {
     message.writeln();
   }
 
+  private boolean isResumedGame() {
+    return new YesNoDialog().read(Message.RESUME.toString());
+  }
 
   public static void main(String[] args) {
     new Mastermind().play();
-  }
-
-  private boolean isResumedGame() {
-    return new YesNoDialog().read(Message.RESUME.toString());
   }
 
 }

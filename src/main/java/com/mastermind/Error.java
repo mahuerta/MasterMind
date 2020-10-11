@@ -3,10 +3,9 @@ package com.mastermind;
 import com.utils.Console;
 
 enum Error {
-  DUPLICATED("Repeated colors"),
-  WRONG_CHARACTERS("Wrong colors, they must be: " + Color.getColorsCombination()),
-  WRONG_LENGTH("Wrong proposed combination length"),
-  NULL_ERROR;
+  DUPLICATED("Repeated colors"), WRONG_CHARACTERS(
+      "Wrong colors, they must be: " + Color.getInitials()), WRONG_LENGTH(
+          "Wrong proposed combination length"), NULL_ERROR;
 
   private String message;
 
@@ -16,7 +15,7 @@ enum Error {
     this.message = message;
   }
 
-  public void writeln() {
+  void writeln() {
     if (!this.isNull()) {
       Console.instance().writeln(this.message);
     }

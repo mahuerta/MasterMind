@@ -1,28 +1,36 @@
 package com.mastermind;
 
+import com.utils.Console;
+
 public class Board {
 
-  private static final int MAX_ATTEMPTS = 10;
-
+  private static final int MAX_ATTEMPS = 10;
   private SecretCombination secretCombination;
   private ProposedCombination[] proposedCombinations;
   private Result[] results;
-
-  private int attemps;
+  private int attempts;
 
   Board() {
     this.secretCombination = new SecretCombination();
-    this.proposedCombinations = new ProposedCombination[Board.MAX_ATTEMPTS];
-    this.results = new Result[Board.MAX_ATTEMPTS];
-    attemps = 0;
+    this.proposedCombinations = new ProposedCombination[Board.MAX_ATTEMPS];
+    this.results = new Result[Board.MAX_ATTEMPS];
+    this.attempts = 0;
   }
 
-  void write() {
-    for (int j = 0; j < attemps; j++) {
-      this.proposedCombinations[j].write();
-      Message.LEFT_ARROW.write();
-      this.results[j].writeln();
+  public void writeln() {
+    Console.instance().writeln();
+    Message.ATTEMPTS.writeln(this.attempts);
+    this.secretCombination.writeln();
+    for (int i = 0; i < this.attempts; i++) {
+      this.proposedCombinations[i].write();
+      this.results[i].writeln();
     }
+  }
+
+  public void add(ProposedCombination proposedCombination) {
+    this.proposedCombinations[this.attempts] = proposedCombination;
+    this.results[this.attempts] = this.secretCombination.getResult(proposedCombination);
+    this.attempts++;
   }
 
   public boolean isFinished() {
@@ -30,37 +38,11 @@ public class Board {
   }
 
   public boolean isWinner() {
-    return this.results[this.attemps - 1].isWinner();
+    return this.results[this.attempts - 1].isWinner();
   }
 
   private boolean isLooser() {
-    return this.attemps == Board.MAX_ATTEMPTS;
-  }
-
-  public void putProposed(ProposedCombination proposedCombination) {
-    this.proposedCombinations[this.attemps] = proposedCombination;
-  }
-
-  public void putResult(Result result) {
-    this.results[this.attemps] = result;
-    attemps = attemps + 1;
-  }
-
-  public ProposedCombination getLastProposed() {
-    return this.proposedCombinations[this.attemps];
-  }
-
-  public SecretCombination getSecret() {
-    return secretCombination;
-  }
-
-  public void setSecret(SecretCombination secretCombination) {
-    this.secretCombination = secretCombination;
-  }
-
-  public void printNumberOfTries() {
-    Message message = Message.ATTEMPTS;
-    message.writeln(attemps);
+    return this.attempts == Board.MAX_ATTEMPS;
   }
 
 }

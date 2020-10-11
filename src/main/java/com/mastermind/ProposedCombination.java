@@ -1,11 +1,45 @@
 package com.mastermind;
 
+import java.util.ArrayList;
 import com.utils.Console;
 
-public class ProposedCombination extends Combination {
+class ProposedCombination extends Combination {
 
-  public ProposedCombination() {
-    super();
+  void write() {
+    for (Color color : this.colors) {
+      color.write();
+    }
+  }
+
+  void read() {
+    Error error;
+    do {
+      Message.PROPOSED_COMBINATION.write();
+      error = this.checkError(Console.instance().readString());
+      error.writeln();
+      if (!error.isNull()) {
+        this.colors = new ArrayList<Color>();
+      }
+    } while (!error.isNull());
+  }
+
+  private Error checkError(String characters) {
+    if (characters.length() != Result.WIDTH) {
+      return Error.WRONG_LENGTH;
+    }
+    for (int i = 0; i < characters.length(); i++) {
+      Color color = Color.getInstance(characters.charAt(i));
+      if (color.isNull()) {
+        return Error.WRONG_CHARACTERS;
+      }
+      for (int j = 0; j < i; j++) {
+        if (this.colors.get(j) == color) {
+          return Error.DUPLICATED;
+        }
+      }
+      this.colors.add(color);
+    }
+    return Error.NULL_ERROR;
   }
 
   boolean contains(Color color, int position) {
@@ -19,62 +53,6 @@ public class ProposedCombination extends Combination {
       }
     }
     return false;
-  }
-
-  public void read() {
-    String proposedCombination = "";
-    do {
-      Message.PROPOSED_COMBINATION.writeln();
-      proposedCombination = Console.instance().readString();
-    } while (!this.isValidCombination(proposedCombination));
-  }
-
-  private boolean isValidCombination(String proposedCombination) {
-    String[] proposedCombinationArr = proposedCombination.split("");
-    if (proposedCombinationArr.length != 4) {
-      Error.WRONG_LENGTH.writeln();
-      return false;
-    } else {
-      for (int i = 0; i < proposedCombinationArr.length; i++) {
-        if (this.isValidColor(proposedCombinationArr[i])) {
-          if (this.isRepeatedColor(proposedCombinationArr[i])) {
-            Error.DUPLICATED.writeln();
-            this.colors.removeAll(this.colors);
-            return false;
-          } else {
-            this.colors.add(Color.valueOf(proposedCombinationArr[i].toUpperCase()));
-          }
-        } else {
-          Error.WRONG_CHARACTERS.writeln();
-          Color.writeln();
-
-          this.colors.removeAll(this.colors);
-          return false;
-        }
-      }
-      return true;
-    }
-  }
-
-  private boolean isValidColor(String proposedColor) {
-    try {
-      Color.valueOf(proposedColor.toUpperCase());
-      return true;
-    } catch (IllegalArgumentException e) {
-      return false;
-    } catch (NullPointerException e) {
-      return false;
-    }
-  }
-
-  private boolean isRepeatedColor(String proposedColor) {
-    return this.colors.contains(Color.valueOf(proposedColor.toUpperCase()));
-  }
-
-  public void write() {
-    for (Color color : this.colors) {
-      Console.instance().write(color.toString());
-    }
   }
 
 }
