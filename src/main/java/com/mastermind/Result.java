@@ -15,7 +15,7 @@ public class Result {
     message.writeln(blacks, whites);
   }
 
-  boolean isWinner() {
+  public boolean isWinner() {
     return this.blacks == Result.WIDTH;
   }
 

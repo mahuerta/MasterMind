@@ -46,7 +46,7 @@ public class ProposedCombination extends Combination {
           }
         } else {
           Error.WRONG_CHARACTERS.writeln();
-          Color.println();
+          Color.writeln();
 
           this.colors.removeAll(this.colors);
           return false;

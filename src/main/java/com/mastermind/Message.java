@@ -3,15 +3,10 @@ package com.mastermind;
 import com.utils.Console;
 
 enum Message {
-  ATTEMPTS("#attempts attempt(s): "), 
-  SECRET("*"), 
-  RESUME("Do you want to continue"), 
-  RESULT(" --> #blacks blacks and #whites whites"), 
-  PROPOSED_COMBINATION("Propose a combination: "), 
-  TITLE("----- MASTERMIND -----"), 
-  WINNER("You've won!!! ;-)"), 
-  LOOSER("You've lost!!! :-("),
-  LEFT_ARROW("---> "); 
+  ATTEMPTS("#attempts attempt(s): "), SECRET("*"), RESUME("Do you want to continue"), RESULT(
+      " --> #blacks blacks and #whites whites"), PROPOSED_COMBINATION(
+          "Propose a combination: "), TITLE("----- MASTERMIND -----"), WINNER(
+              "You've won!!! ;-)"), LOOSER("You've lost!!! :-("), LEFT_ARROW("---> ");
 
 
   private String message;
@@ -20,21 +15,21 @@ enum Message {
     this.message = message;
   }
 
-  void write() {
+  public void write() {
     Console.instance().write(this.message);
   }
 
-  void writeln() {
+  public void writeln() {
     Console.instance().writeln(this.message);
   }
 
-  void writeln(int attempts) {
+  public void writeln(int attempts) {
     assert this == Message.ATTEMPTS;
 
     Console.instance().writeln(this.message.replaceAll("#attempts", "" + attempts));
   }
 
-  void writeln(int blacks, int whites) {
+  public void writeln(int blacks, int whites) {
     assert this == Message.RESULT;
 
     Console.instance().writeln(

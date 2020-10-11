@@ -18,7 +18,7 @@ public enum Color {
     return colors;
   }
 
-  public static void println() {
+  public static void writeln() {
     String colors = "";
     for (Color color : Color.values()) {
       colors += color.toString();

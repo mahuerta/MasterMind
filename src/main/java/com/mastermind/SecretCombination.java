@@ -24,7 +24,7 @@ public class SecretCombination extends Combination {
 
   }
 
-  Result getResult(ProposedCombination proposedCombination) {
+  public Result getResult(ProposedCombination proposedCombination) {
     int blacks = 0;
     for (int i = 0; i < this.colors.size(); i++) {
       if (proposedCombination.contains(this.colors.get(i), i)) {
@@ -42,7 +42,7 @@ public class SecretCombination extends Combination {
     return new Result(blacks, whites - blacks);
   }
 
-  void writeln() {
+  public void writeln() {
     Message.SECRET.write();
     this.colors.forEach(System.out::print);
     Console.instance().writeln();
