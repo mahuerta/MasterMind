@@ -15,5 +15,6 @@ Puedes encontrar más información en los siguientes enlaces:
 
 ****
 ### Diagrama UML
+Planteamos nuestro modelo de dominio realizado antes de la corrección planteada por el profesor.
+![ModeloDeDominio](docs/images/ModeloDeDominio.svg)
 
-Aqui ira el UML ;D
