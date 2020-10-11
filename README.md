@@ -18,14 +18,9 @@ Puedes encontrar más información en los siguientes enlaces:
 **[Como se juega a Mastermind](https://www.youtube.com/watch?v=2-hTeg2M6GQ)**
 
 > Requisitos práctica Mastermind
-- [x] domainModel
+- [x] [domainModel](https://github.com/mahuerta/MasterMind/tree/domainModel)
 - [ ] domainView
 - [ ] Next Implementations
-
-Hemos realizado diferentes versiones hasta conseguir esta planteada.
-En un principio realizamos un modelo con la utilización de Turnos, la cual permitía a los dos jugadores realizar la acción de jugar.
-Tras ver que realmente la existencia de turnos no era de utilidad, decidimos plantear una solución sin ellos.
-Plantemos en esta sección el diseño de clases de Mastermind.
 
 ### Diagrama UML
 Planteamos nuestro modelo de dominio realizado antes de la corrección planteada por el profesor.
