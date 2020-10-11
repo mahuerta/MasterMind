@@ -1,10 +1,9 @@
-package com.mastermind;
+package com.models;
 
 import java.util.Collections;
 import java.util.Random;
-import com.utils.Console;
 
-class SecretCombination extends Combination {
+public class SecretCombination extends Combination {
 
   SecretCombination() {
     super();
@@ -32,14 +31,6 @@ class SecretCombination extends Combination {
       }
     }
     return new Result(blacks, whites - blacks);
-  }
-
-  void writeln() {
-    Console.instance().write("**** - ");
-    for (Color color : this.colors) {
-      color.write();
-    }
-    Console.instance().writeln();
   }
 
 }

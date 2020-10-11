@@ -1,8 +1,6 @@
-package com.mastermind;
+package com.models;
 
-import com.utils.Console;
-
-enum Color {
+public enum Color {
   RED('r'), BLUE('b'), YELLOW('y'), GREEN('g'), ORANGE('o'), PURPLE('p'), NULL_COLOR;
 
   private char initial;
@@ -13,17 +11,17 @@ enum Color {
     this.initial = initial;
   }
 
-  static String getInitials() {
+  public static String getInitials() {
     String result = "";
     for (int i = 0; i < Color.length(); i++) {
-      result += Color.get(i).initial;
+      result += Color.get(i).getInitial();
     }
     return result;
   }
 
   static Color getInstance(char character) {
     for (int i = 0; i < Color.length(); i++) {
-      if (Color.get(i).initial == character) {
+      if (Color.get(i).getInitial() == character) {
         return Color.get(i);
       }
     }
@@ -38,13 +36,13 @@ enum Color {
     return Color.values()[index];
   }
 
-  void write() {
-    assert this != Color.NULL_COLOR;
-    new Console().write(this.initial);
-  }
 
   boolean isNull() {
     return this == Color.NULL_COLOR;
+  }
+
+  public char getInitial() {
+    return initial;
   }
 
 }

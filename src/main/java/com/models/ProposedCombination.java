@@ -1,29 +1,12 @@
-package com.mastermind;
+package com.models;
 
-import java.util.ArrayList;
-import com.utils.Console;
+public class ProposedCombination extends Combination {
 
-class ProposedCombination extends Combination {
+  public ProposedCombination() {
+    super();
+  };
 
-  void write() {
-    for (Color color : this.colors) {
-      color.write();
-    }
-  }
-
-  void read() {
-    Error error;
-    do {
-      Message.PROPOSED_COMBINATION.write();
-      error = this.checkError(Console.instance().readString());
-      error.writeln();
-      if (!error.isNull()) {
-        this.colors = new ArrayList<Color>();
-      }
-    } while (!error.isNull());
-  }
-
-  private Error checkError(String characters) {
+  public Error checkError(String characters) {
     if (characters.length() != Result.WIDTH) {
       return Error.WRONG_LENGTH;
     }
@@ -54,5 +37,6 @@ class ProposedCombination extends Combination {
     }
     return false;
   }
+
 
 }

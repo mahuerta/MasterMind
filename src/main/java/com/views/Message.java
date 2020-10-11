@@ -1,4 +1,4 @@
-package com.mastermind;
+package com.views;
 
 import com.utils.Console;
 
