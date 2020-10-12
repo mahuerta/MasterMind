@@ -1,13 +1,31 @@
-# Mastermind Versión 1
+<h1 align="center">Solucion documentView Mastermind   👨🏻‍💻   </h1>
 
-## Práctica Mastermind Master Cloud Apps
+Esta version esta realizada basandonos en el resultado que dio el profesor sobre el domainModel para no distanciarnos mucho en la respuesta final.
 
-* **Autor**: Miguel Angel Huerta y Juan Carlos Blázquez
-Paquete com.mastermind
+### Vista de Logica/Diseño
+Plantemos en esta sección el diseño y la logica de clases de Mastermind mediante Patrón de Vista Separada.
 
-Paquete com.views
+<h3 id="arquitectura">Arquitectura</h3>
+![Arquitectura](docs/images/arquitectura.svg)
 
-Paquete com.models
+<h3 id="paquete-mastermind">Paquete <em>mastermind</em></h3>
+![mastermindPackage](docs/images/mastermindPackage.svg)
 
-Paquete com.utils
+<h3 id="paquete-mastermind-views">Paquete <em>mastermind.views</em></h3>
+![Views](docs/images/mastermindViews.svg)
 
+<h3 id="paquete-mastermind-models">Paquete <em>mastermind.models</em></h3>
+![Models](docs/images/mastermindModels.svg)
+
+<h3 id="paquete-mastermind-utils">Paquete <em>mastermind.utils</em></h3>
+![Utils](docs/images/mastermindUtils.svg)
+
+
+
+## Authors
+
+👤 **JuanCBM**
+* Github: [@JuanCBM](https://github.com/JuanCBM)
+
+👤 **mahuerta**
+* Github: [@mahuerta](https://github.com/mahuerta)
