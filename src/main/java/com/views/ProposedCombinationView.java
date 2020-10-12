@@ -12,7 +12,7 @@ public class ProposedCombinationView {
     ProposedCombination proposedCombination;
     Error error;
     do {
-      Message.PROPOSED_COMBINATION.write();
+      MessageView.PROPOSED_COMBINATION.write();
       proposedCombination = new ProposedCombination();
       error = proposedCombination.checkError(Console.instance().readString());
       new ErrorView(error).writeln();

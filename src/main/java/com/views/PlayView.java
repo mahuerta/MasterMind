@@ -16,9 +16,9 @@ public class PlayView {
       this.playGame();
       new GameView(this.game).write();
     } while (!this.game.isFinished());
-    Message message = Message.LOOSER;
+    MessageView message = MessageView.LOOSER;
     if (this.game.isWinner()) {
-      message = Message.WINNER;
+      message = MessageView.WINNER;
     }
     message.writeln();
   }

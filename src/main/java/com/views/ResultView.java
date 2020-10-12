@@ -11,7 +11,7 @@ public class ResultView {
   }
 
   void writeln() {
-    Message.RESULT.writeln(this.result.getBlacks(), this.result.getWhites());
+    MessageView.RESULT.writeln(this.result.getBlacks(), this.result.getWhites());
   }
 
 }

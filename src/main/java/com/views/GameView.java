@@ -14,7 +14,7 @@ public class GameView {
   void write() {
     Console.instance().writeln();
     int attemps = this.game.getAttemps();
-    Message.ATTEMPTS.writeln(attemps);
+    MessageView.ATTEMPTS.writeln(attemps);
 
     new SecretCombinationView(this.game.getSecretCombination()).writeln();
     for (int i = 0; i < attemps; i++) {

@@ -2,7 +2,7 @@ package com.views;
 
 import com.utils.Console;
 
-enum Message {
+enum MessageView {
   ATTEMPTS("#attempts attempt(s): "), SECRET("*"), RESUME("Do you want to continue"), RESULT(
       " --> #blacks blacks and #whites whites"), PROPOSED_COMBINATION(
           "Propose a combination: "), TITLE(
@@ -10,7 +10,7 @@ enum Message {
 
   private String message;
 
-  private Message(String message) {
+  private MessageView(String message) {
     this.message = message;
   }
 
@@ -23,13 +23,13 @@ enum Message {
   }
 
   void writeln(int attempts) {
-    assert this == Message.ATTEMPTS;
+    assert this == MessageView.ATTEMPTS;
 
     Console.instance().writeln(this.message.replaceAll("#attempts", "" + attempts));
   }
 
   void writeln(int blacks, int whites) {
-    assert this == Message.RESULT;
+    assert this == MessageView.RESULT;
 
     Console.instance().writeln(
         this.message.replaceFirst("#blacks", "" + blacks).replaceFirst("#whites", "" + whites));

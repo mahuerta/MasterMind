@@ -11,7 +11,7 @@ public class StartView {
   }
 
   public void interact() {
-    Message.TITLE.writeln();
+    MessageView.TITLE.writeln();
     new GameView(this.game).write();
   }
 

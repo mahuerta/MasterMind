@@ -6,7 +6,7 @@ public class ResumeView {
 
 
   boolean interact() {
-    return new YesNoDialog().read(Message.RESUME.toString());
+    return new YesNoDialog().read(MessageView.RESUME.toString());
   }
 
 }
