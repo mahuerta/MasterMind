@@ -19,7 +19,7 @@ Puedes encontrar más información en los siguientes enlaces:
 
 > Requisitos práctica Mastermind
 - [x] [domainModel](https://github.com/mahuerta/MasterMind/tree/domainModel)
-- [ ] domainView
+- [x] [documentView](https://github.com/mahuerta/MasterMind/tree/domainModel)
 - [ ] Next Implementations
 
 ### Diagrama UML
