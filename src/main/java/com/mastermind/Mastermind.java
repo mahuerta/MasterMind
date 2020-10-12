@@ -5,7 +5,6 @@ import com.views.View;
 
 public class Mastermind {
 
-  public static int NUMBER_PLAYERS = 2;
   private Game game;
   private View view;
 
