@@ -1,31 +1,31 @@
 package com.views;
 
-import com.models.Game;
+import com.models.Board;
 import com.models.ProposedCombination;
 
 public class PlayView {
-  private Game game;
+	private Board board;
 
-  PlayView(Game game) {
-    this.game = game;
-  }
+	PlayView(Board board) {
+		this.board = board;
+	}
 
-  public void interact() {
+	public void interact() {
 
-    do {
-      this.playGame();
-      new GameView(this.game).write();
-    } while (!this.game.isFinished());
-    MessageView message = MessageView.LOOSER;
-    if (this.game.isWinner()) {
-      message = MessageView.WINNER;
-    }
-    message.writeln();
-  }
+		do {
+			this.playGame();
+			new BoardView(this.board).write();
+		} while (!this.board.isFinished());
+		MessageView message = MessageView.LOOSER;
+		if (this.board.isWinner()) {
+			message = MessageView.WINNER;
+		}
+		message.writeln();
+	}
 
-  private void playGame() {
-    ProposedCombination proposedCombination = new ProposedCombinationView().read();
-    this.game.put(proposedCombination);
-  }
+	private void playGame() {
+		ProposedCombination proposedCombination = new ProposedCombinationView().read();
+		this.board.add(proposedCombination);
+	}
 
 }

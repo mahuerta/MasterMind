@@ -1,26 +1,26 @@
 package com.views;
 
-import com.models.Game;
+import com.models.Board;
 
 public class View {
 
-  private Game game;
-  private StartView startView;
-  private PlayView playView;
-  private ResumeView resumeView;
+	private Board board;
+	private StartView startView;
+	private PlayView playView;
+	private ResumeView resumeView;
 
-  public View(Game game) {
-    this.game = game;
-    this.startView = new StartView(this.game);
-    this.playView = new PlayView(this.game);
-    this.resumeView = new ResumeView();
-  }
+	public View(Board board) {
+		this.board = board;
+		this.startView = new StartView(this.board);
+		this.playView = new PlayView(this.board);
+		this.resumeView = new ResumeView();
+	}
 
-  public void interact() {
-    do {
-      this.startView.interact();
-      this.playView.interact();
-    } while (this.resumeView.interact());
-  }
+	public void interact() {
+		do {
+			this.startView.interact();
+			this.playView.interact();
+		} while (this.resumeView.interact());
+	}
 
 }

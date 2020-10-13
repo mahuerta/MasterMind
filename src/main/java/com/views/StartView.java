@@ -1,18 +1,18 @@
 package com.views;
 
-import com.models.Game;
+import com.models.Board;
 
 public class StartView {
 
-  private Game game;
+	private Board board;
 
-  StartView(Game game) {
-    this.game = game;
-  }
+	StartView(Board board) {
+		this.board = board;
+	}
 
-  public void interact() {
-    MessageView.TITLE.writeln();
-    new GameView(this.game).write();
-  }
+	public void interact() {
+		MessageView.TITLE.writeln();
+		new BoardView(this.board).write();
+	}
 
 }

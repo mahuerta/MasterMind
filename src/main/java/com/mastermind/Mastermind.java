@@ -1,24 +1,24 @@
 package com.mastermind;
 
-import com.models.Game;
+import com.models.Board;
 import com.views.View;
 
 public class Mastermind {
 
-  private Game game;
-  private View view;
+	private Board board;
+	private View view;
 
-  Mastermind() {
-    this.game = new Game();
-    this.view = new View(this.game);
-  }
+	Mastermind() {
+		this.board = new Board();
+		this.view = new View(this.board);
+	}
 
-  public static void main(String[] args) {
-    new Mastermind().play();
-  }
+	public static void main(String[] args) {
+		new Mastermind().play();
+	}
 
-  private void play() {
-    this.view.interact();
-  }
+	private void play() {
+		this.view.interact();
+	}
 
 }

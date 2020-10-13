@@ -2,52 +2,52 @@ package com.models;
 
 public class Board {
 
-  private static final int MAX_ATTEMPS = 10;
-  private SecretCombination secretCombination;
+	private static final int MAX_ATTEMPS = 10;
+	private SecretCombination secretCombination;
 
-  public SecretCombination getSecretCombination() {
-    return secretCombination;
-  }
+	private ProposedCombination[] proposedCombinations;
+	private Result[] results;
+	private int attempts;
 
-  public ProposedCombination[] getProposedCombinations() {
-    return proposedCombinations;
-  }
+	public Board() {
+		this.secretCombination = new SecretCombination();
+		this.proposedCombinations = new ProposedCombination[Board.MAX_ATTEMPS];
+		this.results = new Result[Board.MAX_ATTEMPS];
+		this.attempts = 0;
+	}
 
-  public Result[] getResults() {
-    return results;
-  }
+	public void add(ProposedCombination proposedCombination) {
+		this.proposedCombinations[this.attempts] = proposedCombination;
+		this.results[this.attempts] = this.secretCombination.getResult(proposedCombination);
+		this.attempts++;
+	}
 
-  public int getAttempts() {
-    return attempts;
-  }
+	public boolean isFinished() {
+		return this.isWinner() || this.isLooser();
+	}
 
-  private ProposedCombination[] proposedCombinations;
-  private Result[] results;
-  private int attempts;
+	public boolean isWinner() {
+		return this.results[this.attempts - 1].isWinner();
+	}
 
-  public Board() {
-    this.secretCombination = new SecretCombination();
-    this.proposedCombinations = new ProposedCombination[Board.MAX_ATTEMPS];
-    this.results = new Result[Board.MAX_ATTEMPS];
-    this.attempts = 0;
-  }
+	private boolean isLooser() {
+		return this.attempts == Board.MAX_ATTEMPS;
+	}
 
-  public void add(ProposedCombination proposedCombination) {
-    this.proposedCombinations[this.attempts] = proposedCombination;
-    this.results[this.attempts] = this.secretCombination.getResult(proposedCombination);
-    this.attempts++;
-  }
+	public SecretCombination getSecretCombination() {
+		return secretCombination;
+	}
 
-  public boolean isFinished() {
-    return this.isWinner() || this.isLooser();
-  }
+	public ProposedCombination[] getProposedCombinations() {
+		return proposedCombinations;
+	}
 
-  public boolean isWinner() {
-    return this.results[this.attempts - 1].isWinner();
-  }
+	public Result[] getResults() {
+		return results;
+	}
 
-  private boolean isLooser() {
-    return this.attempts == Board.MAX_ATTEMPS;
-  }
+	public int getAttempts() {
+		return attempts;
+	}
 
 }
