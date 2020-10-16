@@ -1,11 +1,12 @@
 package com.views.graphics;
 
 import com.models.Game;
+import com.views.View;
 
 // TODO: Implementar solución con Biblioteca gráfica.
-public class View extends com.views.View {
+public class GraphicView extends View {
 
-	public View(Game game) {
+	public GraphicView(Game game) {
 		super(game);
 	}
 

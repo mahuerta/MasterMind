@@ -1,20 +1,14 @@
 package com.mastermind;
 
 import com.models.Game;
-import com.views.graphics.View;
+import com.views.graphics.GraphicView;
 
-public class GraphicsMastermind {
+public class GraphicsMastermind extends Mastermind{
 
-	private Game game;
-	private View view;
 
-	private GraphicsMastermind() {
-		this.game = new Game();
-		this.view = new View(this.game);
-	}
-
-	private void play() {
-		this.view.interact();
+	@Override
+	protected GraphicView createView(Game game) {
+		return new GraphicView(game);
 	}
 
 	public static void main(String[] args) {

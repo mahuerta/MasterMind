@@ -1,19 +1,13 @@
 package com.mastermind;
 
 import com.models.Game;
-import com.views.console.View;
+import com.views.console.ConsoleView;
 
-public class ConsoleMastermind {
-	private Game game;
-	private View view;
+public class ConsoleMastermind extends Mastermind{
 
-	ConsoleMastermind() {
-		this.game = new Game();
-		this.view = new View(this.game);
-	}
-
-	private void play() {
-		this.view.interact();
+	@Override
+	protected ConsoleView createView(Game game) {
+		return new ConsoleView(game);
 	}
 
 	public static void main(String[] args) {

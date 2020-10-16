@@ -1,8 +1,9 @@
 package com.views.console;
 
 import com.models.Game;
+import com.views.View;
 
-public class View extends com.views.View {
+public class ConsoleView extends View {
 
 	private StartView startView;
 
@@ -10,7 +11,7 @@ public class View extends com.views.View {
 
 	private ResumeView resumeView;
 
-	public View(Game game) {
+	public ConsoleView(Game game) {
 		super(game);
 		this.startView = new StartView(game);
 		this.proposalView = new ProposalView(game);
