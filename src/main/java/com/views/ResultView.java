@@ -1,17 +1,18 @@
 package com.views;
 
 import com.models.Result;
+import com.utils.WithConsoleView;
 
-public class ResultView {
+class ResultView extends WithConsoleView {
 
-  private Result result;
+	private Result result;
 
-  ResultView(Result result) {
-    this.result = result;
-  }
+	ResultView(Result result) {
+		this.result = result;
+	}
 
-  void writeln() {
-    MessageView.RESULT.writeln(this.result.getBlacks(), this.result.getWhites());
-  }
+	void writeln() {
+		MessageView.RESULT.writeln(this.result.getBlacks(), this.result.getWhites());
+	}
 
 }

@@ -1,18 +1,12 @@
 package com.views;
 
-import com.models.Board;
+import com.utils.WithConsoleView;
 
-public class StartView {
+class StartView extends WithConsoleView {
 
-	private Board board;
-
-	StartView(Board board) {
-		this.board = board;
-	}
-
-	public void interact() {
+	void interact() {
 		MessageView.TITLE.writeln();
-		new BoardView(this.board).write();
+		new SecretCombinationView().writeln();
 	}
 
 }

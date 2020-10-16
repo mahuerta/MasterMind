@@ -3,36 +3,32 @@ package com.views;
 import com.utils.Console;
 
 enum MessageView {
-  ATTEMPTS("#attempts attempt(s): "), SECRET("*"), RESUME("Do you want to continue"), RESULT(
-      " --> #blacks blacks and #whites whites"), PROPOSED_COMBINATION(
-          "Propose a combination: "), TITLE(
-              "----- MASTERMIND -----"), WINNER("You've won!!! ;-)"), LOOSER("You've lost!!! :-(");
+	ATTEMPTS("#attempts attempt(s): "), SECRET("*"), RESUME("Do you want to continue"),
+	RESULT(" --> #blacks blacks and #whites whites"), PROPOSED_COMBINATION("Propose a combination: "),
+	TITLE("----- MASTERMIND -----"), WINNER("You've won!!! ;-)"), LOOSER("You've lost!!! :-(");
 
-  private String message;
+	private String message;
 
-  private MessageView(String message) {
-    this.message = message;
-  }
+	private Console console;
 
-  void write() {
-    Console.instance().write(this.message);
-  }
+	private MessageView(String message) {
+		this.message = message;
+	}
 
-  void writeln() {
-    Console.instance().writeln(this.message);
-  }
+	void write() {
+		this.console.write(this.message);
+	}
 
-  void writeln(int attempts) {
-    assert this == MessageView.ATTEMPTS;
+	void writeln() {
+		this.console.writeln(this.message);
+	}
 
-    Console.instance().writeln(this.message.replaceAll("#attempts", "" + attempts));
-  }
+	void writeln(int attempts) {
+		this.console.writeln(this.message.replaceAll("#attempts", "" + attempts));
+	}
 
-  void writeln(int blacks, int whites) {
-    assert this == MessageView.RESULT;
-
-    Console.instance().writeln(
-        this.message.replaceFirst("#blacks", "" + blacks).replaceFirst("#whites", "" + whites));
-  }
+	void writeln(int blacks, int whites) {
+		this.console.writeln(this.message.replaceFirst("#blacks", "" + blacks).replaceFirst("#whites", "" + whites));
+	}
 
 }

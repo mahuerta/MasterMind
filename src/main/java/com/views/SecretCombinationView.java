@@ -1,23 +1,19 @@
 package com.views;
 
-import java.util.List;
-import com.models.Color;
 import com.models.SecretCombination;
-import com.utils.Console;
+import com.utils.WithConsoleView;
 
-public class SecretCombinationView {
-  private SecretCombination secretCombination;
+class SecretCombinationView extends WithConsoleView {
 
-  SecretCombinationView(SecretCombination secretCombination) {
-    this.secretCombination = secretCombination;
-  }
+	SecretCombinationView() {
+		super();
+	}
 
-  void writeln() {
-    Console.instance().write("**** - ");
-    List<Color> colors = this.secretCombination.getColors();
-    for (Color color : colors) {
-      new ColorView(color).write();
-    }
-    Console.instance().writeln();
-  }
+	void writeln() {
+		for (int i = 0; i < SecretCombination.getWidth(); i++) {
+			MessageView.SECRET.write();
+		}
+		this.console.writeln();
+	}
+
 }

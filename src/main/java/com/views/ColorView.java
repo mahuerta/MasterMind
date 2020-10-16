@@ -1,21 +1,37 @@
 package com.views;
 
 import com.models.Color;
-import com.utils.Console;
+import com.utils.WithConsoleView;
 
-public class ColorView {
+class ColorView extends WithConsoleView {
 
-  private Color color;
+	private static final char[] INITIALS = { 'r', 'b', 'y', 'g', 'o', 'p' };
 
-  public ColorView(Color color) {
-    this.color = color;
-  }
+	private Color color;
 
-  public void write() {
-    new Console().write(this.color.getInitial());
-  }
+	ColorView(Color color) {
+		this.color = color;
+	}
 
-  public void writeInitials() {
-    new Console().write(Color.getInitials());
-  }
+	static String allInitials() {
+		String result = "";
+		for (char character : ColorView.INITIALS) {
+			result += character;
+		}
+		return result;
+	}
+
+	static Color getInstance(char character) {
+		for (int i = 0; i < ColorView.INITIALS.length; i++) {
+			if (ColorView.INITIALS[i] == character) {
+				return Color.values()[i];
+			}
+		}
+		return null;
+	}
+
+	void write() {
+		this.console.write(ColorView.INITIALS[this.color.ordinal()]);
+	}
+
 }

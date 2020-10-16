@@ -1,24 +1,21 @@
 package com.views;
 
-import com.models.Color;
 import com.models.Error;
-import com.utils.Console;
+import com.utils.WithConsoleView;
 
-public class ErrorView {
+class ErrorView extends WithConsoleView {
 
-  private static final String[] MESSAGES = {"Repeated colors",
-      "Wrong colors, they must be:" + Color.getInitials(), "Wrong proposed combination length"};
+	private static final String[] MESSAGES = { "Repeated colors",
+			"Wrong colors, they must be: " + ColorView.allInitials(), "Wrong proposed combination length" };
 
-  private Error error;
+	private Error error;
 
-  ErrorView(Error error) {
-    this.error = error;
-  }
+	ErrorView(Error error) {
+		this.error = error;
+	}
 
-  void writeln() {
-    if (!error.isNull()) {
-      Console.instance().writeln(ErrorView.MESSAGES[this.error.ordinal()]);
-    }
-  }
+	void writeln() {
+		this.console.writeln(ErrorView.MESSAGES[this.error.ordinal()]);
+	}
 
 }

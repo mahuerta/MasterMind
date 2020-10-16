@@ -3,20 +3,18 @@ package com.models;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class Combination {
+public abstract class Combination {
 
-  protected List<Color> colors;
+	private static final int WIDTH = 4;
 
-  protected Combination() {
-    this.colors = new ArrayList<Color>();
-  }
+	protected List<Color> colors;
 
-  public List<Color> getColors() {
-    return this.colors;
-  }
+	protected Combination() {
+		this.colors = new ArrayList<Color>();
+	}
 
-  public void setColors(List<Color> colors) {
-    this.colors = colors;
-  }
+	public static int getWidth() {
+		return Combination.WIDTH;
+	}
 
 }
