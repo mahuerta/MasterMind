@@ -14,7 +14,7 @@ public class View extends com.views.View {
 	}
 
 	@Override
-	protected void play() {
+	protected boolean play() {return false;
 	}
 
 	@Override
