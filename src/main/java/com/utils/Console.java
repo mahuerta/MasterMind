@@ -5,6 +5,15 @@ import java.io.InputStreamReader;
 
 public class Console {
 
+	public static Console console;
+
+	public static Console instance() {
+		if (Console.console == null) {
+			Console.console = new Console();
+		}
+		return Console.console;
+	}
+
 	private BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
 	public String readString(String title) {
