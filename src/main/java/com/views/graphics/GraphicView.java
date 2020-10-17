@@ -1,24 +1,15 @@
 package com.views.graphics;
 
-import com.controllers.Logic;
+import com.controllers.Controller;
 import com.views.View;
 
 // TODO: Solution with graphic library.
 public class GraphicView extends View {
 
-  public GraphicView(Logic logic) {}
+  public GraphicView() {}
 
   @Override
-  protected void start() {}
+  public void interact(Controller controller) {}
 
-  @Override
-  protected boolean play() {
-    return false;
-  }
-
-  @Override
-  protected boolean isNewGame() {
-    return false;
-  }
 
 }

@@ -1,47 +1,29 @@
 package com.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
 import com.models.Game;
-import com.models.ProposedCombination;
-import com.models.Result;
+import com.models.State;
+import com.models.StateValue;
 
 public class Logic {
 
   private Game game;
-  private ProposalController proposalController;
-  private ResumeController resumeController;
+  private State state;
+  private Map<StateValue, Controller> controllers;
+
 
   public Logic() {
+    this.state = new State();
     this.game = new Game();
-    this.proposalController = new ProposalController(this.game);
-    this.resumeController = new ResumeController(this.game);
+    this.controllers = new HashMap<StateValue, Controller>();
+    this.controllers.put(StateValue.IN_GAME, new ProposalController(this.game, this.state));
+    this.controllers.put(StateValue.RESUME, new ResumeController(this.game, this.state));
+    this.controllers.put(StateValue.EXIT, null);
   }
 
-  public boolean isWinner() {
-    return this.proposalController.isWinner();
-  }
-
-  public boolean isLooser() {
-    return this.proposalController.isLooser();
-  }
-
-  public Result getResult(int i) {
-    return this.proposalController.getResult(i);
-  }
-
-  public ProposedCombination getProposedCombination(int i) {
-    return this.proposalController.getProposedCombination(i);
-  }
-
-  public int getAttempts() {
-    return this.proposalController.getAttempts();
-  }
-
-  public void addProposedCombination(ProposedCombination proposedCombination) {
-    this.proposalController.addProposedCombination(proposedCombination);
-  }
-
-  public void resume() {
-    this.resumeController.resume();
+  public Controller getController() {
+    return this.controllers.get(this.state.getValueState());
   }
 
 }

@@ -1,14 +1,12 @@
 package com.mastermind;
 
-import com.controllers.Logic;
-import com.views.View;
 import com.views.console.ConsoleView;
 
 public class ConsoleMastermind extends Mastermind {
 
   @Override
-  protected View createView(Logic logic) {
-    return new ConsoleView(logic);
+  protected ConsoleView createView() {
+    return new ConsoleView();
   }
 
   public static void main(String[] args) {

@@ -1,13 +1,12 @@
 package com.mastermind;
 
-import com.controllers.Logic;
 import com.views.graphics.GraphicView;
 
 public class GraphicsMastermind extends Mastermind {
 
   @Override
-  protected GraphicView createView(Logic logic) {
-    return new GraphicView(logic);
+  protected GraphicView createView() {
+    return new GraphicView();
   }
 
   public static void main(String[] args) {
