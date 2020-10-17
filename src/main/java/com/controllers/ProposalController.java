@@ -29,12 +29,10 @@ public class ProposalController extends Controller {
 
   public int getAttempts() {
     return this.game.getAttempts();
-
   }
 
   public void addProposedCombination(ProposedCombination proposedCombination) {
     this.game.addProposedCombination(proposedCombination);
-
   }
 
 }

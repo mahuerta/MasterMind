@@ -1,13 +1,12 @@
 package com.views.graphics;
 
-import com.controllers.ProposalController;
-import com.controllers.ResumeController;
+import com.controllers.Logic;
 import com.views.View;
 
 // TODO: Solution with graphic library.
 public class GraphicView extends View {
 
-  public GraphicView(ProposalController proposalController, ResumeController resumeController) {}
+  public GraphicView(Logic logic) {}
 
   @Override
   protected void start() {}

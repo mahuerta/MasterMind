@@ -1,16 +1,14 @@
 package com.views.console;
 
-import com.controllers.ProposalController;
+import com.controllers.Logic;
 import com.models.ProposedCombination;
 import com.utils.Console;
 import com.views.Message;
 
-class ProposalView {
+class ProposalView extends SubView {
 
-  private ProposalController playController;
-
-  ProposalView(ProposalController playController) {
-    this.playController = playController;
+  ProposalView(Logic logic) {
+    super(logic);
   }
 
   boolean interact() {
@@ -18,19 +16,19 @@ class ProposalView {
     ProposedCombinationView proposedCombinationView =
         new ProposedCombinationView(proposedCombination);
     proposedCombinationView.read();
-    this.playController.addProposedCombination(proposedCombination);
+    this.logic.addProposedCombination(proposedCombination);
     Console.instance().writeln();
-    Message.ATTEMPTS.writeln(this.playController.getAttempts());
+    Message.ATTEMPTS.writeln(this.logic.getAttempts());
     new SecretCombinationView().writeln();
 
-    for (int i = 0; i < this.playController.getAttempts(); i++) {
-      new ProposedCombinationView(this.playController.getProposedCombination(i)).write();
-      new ResultView(this.playController.getResult(i)).writeln();
+    for (int i = 0; i < this.logic.getAttempts(); i++) {
+      new ProposedCombinationView(this.logic.getProposedCombination(i)).write();
+      new ResultView(this.logic.getResult(i)).writeln();
     }
-    if (this.playController.isWinner()) {
+    if (this.logic.isWinner()) {
       Message.WINNER.writeln();
       return true;
-    } else if (this.playController.isLooser()) {
+    } else if (this.logic.isLooser()) {
       Message.LOOSER.writeln();
       return true;
     }

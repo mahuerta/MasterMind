@@ -1,7 +1,6 @@
 package com.views.console;
 
-import com.controllers.ProposalController;
-import com.controllers.ResumeController;
+import com.controllers.Logic;
 import com.views.View;
 
 public class ConsoleView extends View {
@@ -12,10 +11,10 @@ public class ConsoleView extends View {
 
   private ResumeView resumeView;
 
-  public ConsoleView(ProposalController playController, ResumeController resumeController) {
+  public ConsoleView(Logic logic) {
     this.startView = new StartView();
-    this.proposalView = new ProposalView(playController);
-    this.resumeView = new ResumeView(resumeController);
+    this.proposalView = new ProposalView(logic);
+    this.resumeView = new ResumeView(logic);
   }
 
   @Override
