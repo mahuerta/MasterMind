@@ -10,6 +10,7 @@ Esta versión está realizada basándonos en el resultado que dio el profesor so
 <li><a href="#arquitectura">Arquitectura</a></li>
 <li><a href="#paquete-mastermind">Paquete <em>mastermind</em></a></li>
 <li><a href="#paquete-mastermind-views">Paquete <em>mastermind.views</em></a></li>
+<li><a href="#paquete-mastermind-views-console">Paquete <em>mastermind.views.console</em></a></li>
 <li><a href="#paquete-mastermind-models">Paquete <em>mastermind.models</em></a></li>
 <li><a href="#paquete-mastermind-utils">Paquete <em>mastermind.utils</em></a></li>
 </ul>
@@ -30,7 +31,7 @@ Plantemos en esta sección el diseño y la logica de clases de Mastermind median
 
 ![Views](docs/images/mastermindViews.svg)
 
-<h3 id="paquete-mastermind-views-console">Paquete <em>mastermind.views.console</em></h3>
+<h3 id="paquete-mastermind-views-console">Paquete <em>paquete-mastermind-views-console</em></h3>
 
 ![Views](docs/images/mastermindViewsConsole.svg)
 
