@@ -23,8 +23,8 @@ public class View extends com.views.View {
 	}
 
 	@Override
-	protected void play() {
-		this.proposalView.interact();
+	protected boolean play() {
+		return this.proposalView.interact();
 	}
 
 	@Override
