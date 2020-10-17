@@ -11,4 +11,9 @@ public class StartController extends Controller {
   public void startGame() {
     this.state.next();
   }
+
+  @Override
+  public void accept(ControllersVisitor controllersVisitor) {
+    controllersVisitor.visit(this);
+  }
 }

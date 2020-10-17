@@ -3,6 +3,7 @@ package com.views.console;
 import com.controllers.Controller;
 import com.controllers.ProposalController;
 import com.controllers.ResumeController;
+import com.controllers.StartController;
 import com.views.View;
 
 public class ConsoleView extends View {
@@ -20,13 +21,18 @@ public class ConsoleView extends View {
   }
 
 
-  @Override
-  public void interact(Controller controller) {
-    if (controller instanceof ProposalController) {
-      this.proposalView.interact((ProposalController) controller);
-    } else if (controller instanceof ResumeController) {
-      this.resumeView.interact((ResumeController) controller);
-    }
+  public void visit(StartController startController) {
+    this.startView.interact(startController);
+  }
+
+
+  public void visit(ProposalController proposalController) {
+    this.proposalView.interact(proposalController);
+  }
+
+
+  public void visit(ResumeController resumeController) {
+    this.resumeView.interact(resumeController);
   }
 
 

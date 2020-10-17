@@ -35,4 +35,10 @@ public class ProposalController extends Controller {
     this.game.addProposedCombination(proposedCombination);
   }
 
+  @Override
+  public void accept(ControllersVisitor controllersVisitor) {
+    controllersVisitor.visit(this);
+  }
+
+
 }
