@@ -9,7 +9,7 @@ public class State {
   }
 
   public void reset() {
-    this.stateValue = StateValue.INITIAL;
+    this.stateValue = StateValue.IN_GAME;
   }
 
   public void next() {

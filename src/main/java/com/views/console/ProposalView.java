@@ -9,6 +9,9 @@ class ProposalView {
 
   boolean interact(ProposalController proposalController) {
 
+    if (proposalController.getAttempts() == 0) {
+      new StartView().interact();
+    }
     ProposedCombination proposedCombination = new ProposedCombination();
     ProposedCombinationView proposedCombinationView =
         new ProposedCombinationView(proposedCombination);
@@ -16,7 +19,7 @@ class ProposalView {
     proposalController.addProposedCombination(proposedCombination);
     Console.instance().writeln();
     Message.ATTEMPTS.writeln(proposalController.getAttempts());
-    new SecretCombinationView(proposalController).writeln();
+    new SecretCombinationView().writeln();
 
     for (int i = 0; i < proposalController.getAttempts(); i++) {
       new ProposedCombinationView(proposalController.getProposedCombination(i)).write();
