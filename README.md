@@ -1,6 +1,6 @@
 <h1 align="center">Solucion documentView Mastermind   👨🏻‍💻   </h1>
 
-Hemos planteado una versión sin utilizar un StartController al ver que era innecesario al no realizar ninguna operación.
+Hemos continuado con la versión sin utilizar un StartController, hemos utilizado por tanto un estado menos.
 
 <div id="toc" class="toc">
 <div id="toctitle">Índice</div>
