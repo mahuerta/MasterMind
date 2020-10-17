@@ -1,10 +1,10 @@
 package com.models;
 
 public enum Color {
-	RED, BLUE, YELLOW, GREEN, ORANGE, PURPLE;
+  RED, BLUE, YELLOW, GREEN, ORANGE, PURPLE;
 
-	static int length() {
-		return Color.values().length;
-	}
+  static int length() {
+    return Color.values().length;
+  }
 
 }

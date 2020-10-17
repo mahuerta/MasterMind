@@ -1,25 +1,25 @@
 package com.views.graphics;
 
-import com.models.Game;
+import com.controllers.ProposalController;
+import com.controllers.ResumeController;
 import com.views.View;
 
-// TODO: Implementar solución con Biblioteca gráfica.
+// TODO: Solution with graphic library.
 public class GraphicView extends View {
 
-	public GraphicView(Game game) {
-		super(game);
-	}
+  public GraphicView(ProposalController proposalController, ResumeController resumeController) {}
 
-	@Override
-	protected void start() {
-	}
+  @Override
+  protected void start() {}
 
-	@Override
-	protected boolean play() {return false;
-	}
+  @Override
+  protected boolean play() {
+    return false;
+  }
 
-	@Override
-	protected boolean isNewGame() {
-		return false;
-	}
+  @Override
+  protected boolean isNewGame() {
+    return false;
+  }
+
 }

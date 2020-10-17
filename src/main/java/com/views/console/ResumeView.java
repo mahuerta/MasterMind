@@ -1,22 +1,24 @@
 package com.views.console;
 
-import com.models.Game;
+import com.controllers.ResumeController;
 import com.utils.YesNoDialog;
 import com.views.Message;
 
-class ResumeView extends SubView {
+class ResumeView {
 
-	ResumeView(Game game) {
-		super(game);
-	}
+  private ResumeController resumeController;
 
-	boolean interact() {
-		Message.RESUME.write();
-		boolean newGame = new YesNoDialog().read();
-		if (newGame) {
-			this.game.clear();
-		}
-		return newGame;
-	}
+  public ResumeView(ResumeController resumeController) {
+    this.resumeController = resumeController;
+  }
+
+  boolean interact() {
+    Message.RESUME.write();
+    boolean newGame = new YesNoDialog().read();
+    if (newGame) {
+      this.resumeController.resume();
+    }
+    return newGame;
+  }
 
 }

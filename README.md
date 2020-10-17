@@ -1,6 +1,6 @@
 <h1 align="center">Solucion documentView Mastermind   👨🏻‍💻   </h1>
 
-Esta versión está realizada basándonos en el resultado que dio el profesor sobre el documentView para no distanciarnos mucho en la respuesta final.
+Hemos planteado una versión sin utilizar un StartController al ver que era innecesario al no realizar ninguna operación.
 
 <div id="toc" class="toc">
 <div id="toctitle">Índice</div>
@@ -16,7 +16,7 @@ Esta versión está realizada basándonos en el resultado que dio el profesor so
 
 <div class="sect1">
 <h2 id="vista-de-lógicadiseño">Vista de Lógica/Diseño</h2>
-Plantemos en esta sección el diseño y la logica de clases de Mastermind mediante Patrón de Vista Separada.
+Plantemos en esta sección el diseño y la logica de clases de Mastermind.
 
 <h3 id="arquitectura">Arquitectura</h3>
 

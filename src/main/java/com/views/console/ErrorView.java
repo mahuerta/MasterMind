@@ -5,14 +5,14 @@ import com.utils.Console;
 
 class ErrorView extends com.views.ErrorView {
 
-	ErrorView(Error error) {
-		super(error);
-	}
+  ErrorView(Error error) {
+    super(error);
+  }
 
-	void writeln() {
-		if (!error.isNull()) {
-			Console.instance().writeln(ErrorView.MESSAGES[this.error.ordinal()]);
-		}
-	}
+  void writeln() {
+    if (!error.isNull()) {
+      Console.instance().writeln(ErrorView.MESSAGES[this.error.ordinal()]);
+    }
+  }
 
 }
