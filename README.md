@@ -30,6 +30,10 @@ Plantemos en esta sección el diseño y la logica de clases de Mastermind median
 
 ![Views](docs/images/mastermindViews.svg)
 
+<h3 id="paquete-mastermind-views-console">Paquete <em>mastermind.views.console</em></h3>
+
+![Views](docs/images/mastermindViewsConsole.svg)
+
 <h3 id="paquete-mastermind-models">Paquete <em>mastermind.models</em></h3>
 
 ![Models](docs/images/mastermindModels.svg)
