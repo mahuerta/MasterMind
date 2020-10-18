@@ -10,7 +10,9 @@ Hemos continuado con la versión sin utilizar un StartController, hemos utilizad
 <li><a href="#arquitectura">Arquitectura</a></li>
 <li><a href="#paquete-mastermind">Paquete <em>mastermind</em></a></li>
 <li><a href="#paquete-mastermind-views">Paquete <em>mastermind.views</em></a></li>
+<li><a href="#paquete-mastermind-views-console">Paquete <em>mastermind.views.console</em></a></li>
 <li><a href="#paquete-mastermind-models">Paquete <em>mastermind.models</em></a></li>
+<li><a href="#paquete-mastermind-controllers">Paquete <em>mastermind.controllers</em></a></li>
 <li><a href="#paquete-mastermind-utils">Paquete <em>mastermind.utils</em></a></li>
 </ul>
 
@@ -30,9 +32,17 @@ Plantemos en esta sección el diseño y la logica de clases de Mastermind.
 
 ![Views](docs/images/mastermindViews.svg)
 
+<h3 id="paquete-mastermind-views-console">Paquete <em>mastermind.views.console</em></h3>
+
+![Views](docs/images/mastermindViewsConsole.svg)
+
 <h3 id="paquete-mastermind-models">Paquete <em>mastermind.models</em></h3>
 
 ![Models](docs/images/mastermindModels.svg)
+
+<h3 id="paquete-mastermind-controllers">Paquete <em>mastermind.controllers</em></h3>
+
+![Utils](docs/images/mastermindControllers.svg)
 
 <h3 id="paquete-mastermind-utils">Paquete <em>mastermind.utils</em></h3>
 
