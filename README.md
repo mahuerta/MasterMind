@@ -1,4 +1,4 @@
-<h1 align="center">Solucion dv.withoutFactoryMethod   👨🏻‍💻   </h1>
+<h1 align="center">Solución dv.withoutFactoryMethod   👨🏻‍💻   </h1>
 
 Esta versión está realizada basándonos en el resultado que dio el profesor sobre el documentView para no distanciarnos mucho en la respuesta final.
 
