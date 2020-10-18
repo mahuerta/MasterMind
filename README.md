@@ -27,6 +27,7 @@ Puedes encontrar más información en los siguientes enlaces:
 - [x] [mvp.pm.withoutDoubleDispatching](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withoutDoubleDispatching)
 - [x] [mvp.pm.withDoubleDispatching](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withDoubleDispatching) *
 - [ ] Next Implementations
+
 (*) Versiones con diagramas
  
 ### Diagrama UML
