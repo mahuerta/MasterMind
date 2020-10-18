@@ -1,6 +1,6 @@
 <h1 align="center">Solucion dv.withFactoryMethod   👨🏻‍💻   </h1>
 
-Esta versión está realizada basándonos en el resultado que dio el profesor sobre el documentView para no distanciarnos mucho en la respuesta final.
+Esta versión está planteada a partir de la solución planteada en la rama [dv.withoutFactoryMethod](https://github.com/mahuerta/MasterMind/tree/dv.withoutFactoryMethod).
 
 ## Authors
 
