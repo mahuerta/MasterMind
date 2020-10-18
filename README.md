@@ -1,4 +1,4 @@
-<h1 align="center">Solucion documentView Mastermind   👨🏻‍💻   </h1>
+<h1 align="center">Solucion mvp.pm.withDoubleDispatching   👨🏻‍💻   </h1>
 
 Hemos continuado con la versión sin utilizar un StartController, hemos utilizado por tanto un estado menos.
 
