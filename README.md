@@ -17,7 +17,7 @@ Puedes encontrar más información en los siguientes enlaces:
 
 **[Como se juega a Mastermind](https://www.youtube.com/watch?v=2-hTeg2M6GQ)**
 
-> Requisitos práctica Mastermind
+> Versiones de la práctica Mastermind
 - [x] [domainModel](https://github.com/mahuerta/MasterMind/tree/domainModel)
 - [x] [documentView](https://github.com/mahuerta/MasterMind/tree/documentView)
 - [x] [dv.withoutFactoryMethod](https://github.com/mahuerta/MasterMind/tree/dv.withoutFactoryMethod)
