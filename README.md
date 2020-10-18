@@ -1,4 +1,4 @@
-<h1 align="center">Solucion documentView Mastermind   👨🏻‍💻   </h1>
+<h1 align="center">Solución documentView Mastermind   👨🏻‍💻   </h1>
 
 Esta versión está realizada basándonos en el resultado que dio el profesor sobre el domainModel para no distanciarnos mucho en la respuesta final.
 
