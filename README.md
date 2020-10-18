@@ -1,4 +1,4 @@
-<h1 align="center">Solucion domainModel Mastermind   👨🏻‍💻   </h1>
+<h1 align="center">Solución domainModel Mastermind   👨🏻‍💻   </h1>
 
 
 Hemos realizado diferentes versiones hasta conseguir esta planteada.
