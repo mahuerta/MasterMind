@@ -1,12 +1,3 @@
-
-## Authors
-
-👤 **JuanCBM**: Juan Carlos Blázquez Muñoz
-* Github: [@JuanCBM](https://github.com/JuanCBM)
-
-👤 **mahuerta**: Miguel Ángel Huerta Rodríguez
-* Github: [@mahuerta](https://github.com/mahuerta)
-
 <h1 align="center">Bienvenidos a Mastermind. Rama Master   👨🏻‍💻   </h1>
 <p>
   <a href="/docs" target="_blank">
@@ -16,6 +7,14 @@
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
+
+## Authors
+
+👤 **JuanCBM**: Juan Carlos Blázquez Muñoz
+* Github: [@JuanCBM](https://github.com/JuanCBM)
+
+👤 **mahuerta**: Miguel Ángel Huerta Rodríguez
+* Github: [@mahuerta](https://github.com/mahuerta)
 
 ### ¿Qué es mastermind?
 
