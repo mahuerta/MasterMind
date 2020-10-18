@@ -1,10 +1,10 @@
 
 ## Authors
 
-👤 **JuanCBM** Juan Carlos Blázquez Muñoz
+👤 **JuanCBM**: Juan Carlos Blázquez Muñoz
 * Github: [@JuanCBM](https://github.com/JuanCBM)
 
-👤 **mahuerta** Miguel Ángel Huerta Rodríguez
+👤 **mahuerta**: Miguel Ángel Huerta Rodríguez
 * Github: [@mahuerta](https://github.com/mahuerta)
 
 <h1 align="center">Bienvenidos a Mastermind. Rama Master   👨🏻‍💻   </h1>
