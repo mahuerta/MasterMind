@@ -1,3 +1,12 @@
+
+## Authors
+
+👤 **JuanCBM** Juan Carlos Blázquez Muñoz
+* Github: [@JuanCBM](https://github.com/JuanCBM)
+
+👤 **mahuerta** Miguel Ángel Huerta Rodríguez
+* Github: [@mahuerta](https://github.com/mahuerta)
+
 <h1 align="center">Bienvenidos a Mastermind. Rama Master   👨🏻‍💻   </h1>
 <p>
   <a href="/docs" target="_blank">
@@ -34,10 +43,3 @@ Puedes encontrar más información en los siguientes enlaces:
 Planteamos nuestro modelo de dominio realizado antes de la corrección planteada por el profesor.
 ![ModeloDeDominio](docs/images/ModeloDeDominio.svg)
 
-## Authors
-
-👤 **JuanCBM**
-* Github: [@JuanCBM](https://github.com/JuanCBM)
-
-👤 **mahuerta**
-* Github: [@mahuerta](https://github.com/mahuerta)
