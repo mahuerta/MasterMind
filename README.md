@@ -1,6 +1,8 @@
-<h1 align="center">Solucion mvp.pm.withDoubleDispatching   👨🏻‍💻   </h1>
+<h1 align="center">Solución mvp.pm.withDoubleDispatching   👨🏻‍💻   </h1>
 
-Hemos continuado con la versión sin utilizar un StartController, hemos utilizado por tanto un estado menos.
+Esta versión está realizada a partir de la solución planteada en la rama [mvp.pm.withoutDoubleDispatching](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withoutDoubleDispatching).
+
+Solución final con un Visitador de Controladores.
 
 <div id="toc" class="toc">
 <div id="toctitle">Índice</div>
