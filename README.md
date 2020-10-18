@@ -1,6 +1,8 @@
-<h1 align="center">Solucion mvp.pm.withoutDoubleDispatching Mastermind   👨🏻‍💻   </h1>
+<h1 align="center">Solución mvp.pm.withoutDoubleDispatching Mastermind   👨🏻‍💻   </h1>
 
-Hemos planteado una versión sin utilizar un StartController al ver que era innecesario al no realizar ninguna operación.
+Esta versión está realizada a partir de la solución planteada en la rama [mvp.pm.withFacade](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withFacade).
+
+Hemos planteado una versión con un estado menos, sin utilizar un estado Inicial.
 
 ## Authors
 
