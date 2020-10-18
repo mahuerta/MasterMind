@@ -2,7 +2,7 @@
 
 Esta versión está realizada a partir de la solución planteada en la rama [dv.withFactoryMethod](https://github.com/mahuerta/MasterMind/tree/dv.withFactoryMethod).
 
-Hemos continuado con la versión sin utilizar un StartController, hemos utilizado por tanto un estado menos.
+Hemos continuado con la versión sin utilizar un StartController.
 
 <div id="toc" class="toc">
 <div id="toctitle">Índice</div>
