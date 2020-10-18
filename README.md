@@ -1,4 +1,4 @@
-<h1 align="center">Bienvenidos a Master Mind. Rama Master   👨🏻‍💻   </h1>
+<h1 align="center">Bienvenidos a Mastermind. Rama Master   👨🏻‍💻   </h1>
 <p>
   <a href="/docs" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
