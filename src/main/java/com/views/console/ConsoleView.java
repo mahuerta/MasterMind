@@ -17,8 +17,8 @@ public class ConsoleView extends View implements ControllerVisitor {
   }
 
   @Override
-  public void interact(AcceptorController controller) {
-    controller.accept(this);
+  public void interact(AcceptorController acceptorController) {
+    acceptorController.accept(this);
   }
 
   @Override

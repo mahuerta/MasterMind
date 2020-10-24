@@ -3,6 +3,7 @@ package com.mastermind;
 import com.controllers.AcceptorController;
 import com.controllers.Logic;
 import com.views.View;
+import com.views.console.ConsoleView;
 
 public abstract class Mastermind {
 
@@ -11,7 +12,7 @@ public abstract class Mastermind {
 
   protected Mastermind() {
     this.logic = new Logic();
-    this.view = this.createView();
+    this.view = new ConsoleView();
   }
 
   protected abstract View createView();

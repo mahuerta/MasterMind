@@ -6,39 +6,41 @@ import com.models.Session;
 
 public class PlayController extends UseCaseController implements AcceptorController {
 
-  private ActionController actionController;
+  private ActionController proposalController;
+
   private UndoController undoController;
+
   private RedoController redoController;
 
   public PlayController(Session session) {
     super(session);
-    this.actionController = new ActionController(session);
+    this.proposalController = new ActionController(session);
     this.undoController = new UndoController(session);
     this.redoController = new RedoController(session);
   }
 
   public boolean isWinner() {
-    return this.actionController.isWinner();
+    return this.proposalController.isWinner();
   }
 
   public boolean isLooser() {
-    return this.actionController.isLooser();
+    return this.proposalController.isLooser();
   }
 
   public Result getResult(int i) {
-    return this.actionController.getResult(i);
+    return this.proposalController.getResult(i);
   }
 
   public ProposedCombination getProposedCombination(int i) {
-    return this.actionController.getProposedCombination(i);
+    return this.proposalController.getProposedCombination(i);
   }
 
   public int getAttempts() {
-    return this.actionController.getAttempts();
+    return this.proposalController.getAttempts();
   }
 
   public void addProposedCombination(ProposedCombination proposedCombination) {
-    this.actionController.addProposedCombination(proposedCombination);
+    this.proposalController.addProposedCombination(proposedCombination);
   }
 
   public void undo() {

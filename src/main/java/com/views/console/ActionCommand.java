@@ -4,9 +4,9 @@ import com.controllers.PlayController;
 import com.models.ProposedCombination;
 import com.views.Message;
 
-class PlayCommand extends Command {
+class ActionCommand extends Command {
 
-  PlayCommand(PlayController playController) {
+  ActionCommand(PlayController playController) {
     super(Message.ACTION_COMMAND.getMessage(), playController);
   }
 
@@ -29,9 +29,8 @@ class PlayCommand extends Command {
 
 
   private void put(PlayController playController) {
-    ProposedCombination proposedCombination = new ProposedCombination();
 
-    proposedCombination = new ProposedCombinationView().read();
+    ProposedCombination proposedCombination = new ProposedCombinationView().read();
     playController.addProposedCombination(proposedCombination);
 
   }

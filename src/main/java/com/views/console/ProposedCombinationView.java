@@ -6,6 +6,7 @@ import com.models.Error;
 import com.models.ProposedCombination;
 import com.utils.WithConsoleView;
 import com.views.Message;
+import java.util.ArrayList;
 
 class ProposedCombinationView extends WithConsoleView {
 
@@ -16,7 +17,7 @@ class ProposedCombinationView extends WithConsoleView {
   }
 
   public ProposedCombination read() {
-    ProposedCombination proposedCombination = new ProposedCombination();
+    ProposedCombination proposedCombination = new ProposedCombination(new ArrayList<Color>());
     Error error;
     do {
       error = null;

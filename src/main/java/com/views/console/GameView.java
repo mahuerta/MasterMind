@@ -6,20 +6,20 @@ import com.views.Message;
 
 public class GameView {
 
-  private UseCaseController controller;
+  private UseCaseController useCaseController;
 
   GameView(UseCaseController controller) {
-    this.controller = controller;
+    this.useCaseController = controller;
   }
 
   void write() {
     Console.instance().writeln();
-    Message.ATTEMPTS.writeln(controller.getAttempts());
+    Message.ATTEMPTS.writeln(useCaseController.getAttempts());
     new SecretCombinationView().writeln();
 
-    for (int i = 0; i < controller.getAttempts(); i++) {
-      new ProposedCombinationView().write(controller.getProposedCombination(i));
-      new ResultView(controller.getResult(i)).writeln();
+    for (int i = 0; i < useCaseController.getAttempts(); i++) {
+      new ProposedCombinationView().write(useCaseController.getProposedCombination(i));
+      new ResultView(useCaseController.getResult(i)).writeln();
     }
   }
 }
