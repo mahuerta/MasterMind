@@ -1,21 +1,23 @@
 package com.controllers;
 
-import com.models.Game;
-import com.models.State;
+import com.models.Session;
 
-public class ResumeController extends Controller {
+public class ResumeController extends UseCaseController implements AcceptorController {
 
-  public ResumeController(Game game, State state) {
-    super(game, state);
+  public ResumeController(Session session) {
+    super(session);
   }
 
-  public void resume() {
-    this.game.clear();
-    this.state.reset();
+  public void resume(boolean isResumed) {
+    if (isResumed) {
+      this.session.next();
+    } else {
+      this.session.reset();
+    }
   }
 
   @Override
-  public void accept(ControllersVisitor controllersVisitor) {
+  public void accept(ControllerVisitor controllersVisitor) {
     controllersVisitor.visit(this);
   }
 }

@@ -9,19 +9,14 @@ import com.views.Message;
 
 class ProposedCombinationView extends WithConsoleView {
 
-  private ProposedCombination proposedCombination;
-
-  ProposedCombinationView(ProposedCombination proposedCombination) {
-    this.proposedCombination = proposedCombination;
-  }
-
-  void write() {
-    for (Color color : this.proposedCombination.getColors()) {
+  void write(ProposedCombination proposedCombination) {
+    for (Color color : proposedCombination.getColors()) {
       new ColorView(color).write();
     }
   }
 
-  void read() {
+  public ProposedCombination read() {
+    ProposedCombination proposedCombination = new ProposedCombination();
     Error error;
     do {
       error = null;
@@ -35,19 +30,21 @@ class ProposedCombinationView extends WithConsoleView {
           if (color == null) {
             error = Error.WRONG_CHARACTERS;
           } else {
-            if (this.proposedCombination.getColors().contains(color)) {
+            if (proposedCombination.getColors().contains(color)) {
               error = Error.DUPLICATED;
             } else {
-              this.proposedCombination.getColors().add(color);
+              proposedCombination.getColors().add(color);
             }
           }
         }
       }
       if (error != null) {
         new ErrorView(error).writeln();
-        this.proposedCombination.getColors().clear();
+        proposedCombination.getColors().clear();
       }
     } while (error != null);
+
+    return proposedCombination;
   }
 
 }

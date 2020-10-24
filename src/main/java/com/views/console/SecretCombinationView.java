@@ -6,7 +6,6 @@ import com.views.Message;
 
 class SecretCombinationView extends WithConsoleView {
 
-
   SecretCombinationView() {
     super();
   }

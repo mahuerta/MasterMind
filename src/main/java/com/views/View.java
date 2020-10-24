@@ -1,12 +1,9 @@
 package com.views;
 
-import com.controllers.Controller;
-import com.controllers.ControllersVisitor;
+import com.controllers.AcceptorController;
 
-public abstract class View implements ControllersVisitor {
+public abstract class View {
 
-  public void interact(Controller controller){
-    controller.accept(this);
-  }
+  public abstract void interact(AcceptorController controller);
 
 }

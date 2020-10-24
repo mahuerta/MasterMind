@@ -16,10 +16,10 @@ public class Game {
   private int attempts;
 
   public Game() {
-    this.clear();
+    this.reset();
   }
 
-  public void clear() {
+  public void reset() {
     this.secretCombination = new SecretCombination();
     this.proposedCombinations = new ArrayList<ProposedCombination>();
     this.results = new ArrayList<Result>();
@@ -50,6 +50,17 @@ public class Game {
 
   public Result getResult(int position) {
     return this.results.get(position);
+  }
+
+  public Memento createMemento() {
+    return new Memento(this);
+  }
+
+  public void set(Memento memento) {
+    this.secretCombination = memento.getGame().secretCombination;
+    this.proposedCombinations = memento.getGame().proposedCombinations;
+    this.results = memento.getGame().results;
+    this.attempts = memento.getGame().attempts;
   }
 
 }

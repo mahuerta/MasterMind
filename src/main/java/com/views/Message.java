@@ -3,10 +3,17 @@ package com.views;
 import com.utils.Console;
 
 public enum Message {
-  ATTEMPTS("#attempts attempt(s): "), SECRET("*"), RESUME("Do you want to continue"), RESULT(
-      " --> #blacks blacks and #whites whites"), PROPOSED_COMBINATION(
-          "Propose a combination: "), TITLE(
-              "----- MASTERMIND -----"), WINNER("You've won!!! ;-)"), LOOSER("You've lost!!! :-(");
+  ATTEMPTS("#attempts attempt(s): "), 
+  SECRET("*"), 
+  RESUME("Do you want to continue"),
+  RESULT(" --> #blacks blacks and #whites whites"), 
+  PROPOSED_COMBINATION("Propose a combination: "), 
+  TITLE("----- MASTERMIND -----"), 
+  WINNER("You've won!!! ;-)"), 
+  LOOSER("You've lost!!! :-("),
+  ACTION_COMMAND("Do a action"), 
+  UNDO_COMMAND("Undo previous action"), 
+  REDO_COMMAND("Redo previous action"),;
 
   private String message;
 
@@ -14,6 +21,10 @@ public enum Message {
     this.message = message;
   }
 
+  public String getMessage() {
+    return this.message;
+  }
+  
   public void write() {
     Console.instance().write(this.message);
   }
