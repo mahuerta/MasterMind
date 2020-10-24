@@ -34,6 +34,7 @@ public class Session {
 
   public void addProposedCombination(ProposedCombination proposedCombination) {
     this.game.addProposedCombination(proposedCombination);
+    this.registry.registry();
   }
 
   public void next() {

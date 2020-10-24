@@ -53,7 +53,13 @@ public class Game {
   }
 
   public Memento createMemento() {
-    return new Memento(this);
+    Game game = new Game();
+    game.attempts = attempts;
+    game.proposedCombinations = proposedCombinations;
+    game.results = results;
+    game.secretCombination = secretCombination;
+    return new Memento(game);
+
   }
 
   public void set(Memento memento) {

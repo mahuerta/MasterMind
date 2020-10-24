@@ -36,8 +36,6 @@ class PlayCommand extends Command {
 
   }
 
-
-
   @Override
   protected boolean isActive() {
     return true;
