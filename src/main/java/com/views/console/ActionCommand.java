@@ -12,12 +12,7 @@ class ActionCommand extends Command {
 
   @Override
   protected void execute() {
-    if (playController.getAttempts() == 0) {
-      new StartView().interact();
-    }
-
     this.put(playController);
-
     new GameView(playController).write();
 
     if (playController.isWinner()) {

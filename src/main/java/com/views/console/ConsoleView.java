@@ -12,6 +12,8 @@ public class ConsoleView extends View implements ControllerVisitor {
   private ResumeView resumeView;
 
   public ConsoleView() {
+    new StartView().interact();
+
     this.playView = new PlayView();
     this.resumeView = new ResumeView();
   }
