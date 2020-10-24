@@ -2,14 +2,14 @@ package com.models;
 
 public class Session {
 
-  private Game game;
-  private GameRegistry registry;
   private State state;
+  private Game game;
+  private Registry registry;
 
   public Session() {
     this.state = new State();
     this.game = new Game();
-    this.registry = new GameRegistry(this.game);
+    this.registry = new Registry(this.game);
   }
 
   public boolean isWinner() {
@@ -34,6 +34,7 @@ public class Session {
 
   public void addProposedCombination(ProposedCombination proposedCombination) {
     this.game.addProposedCombination(proposedCombination);
+    this.registry.registry();
   }
 
   public void next() {

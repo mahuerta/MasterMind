@@ -3,20 +3,21 @@ package com.models;
 import java.util.List;
 import java.util.ArrayList;
 
-class GameRegistry {
+class Registry {
 
   private List<Memento> mementoList;
   private Game game;
 
   private int firstPrevious;
 
-  GameRegistry(Game game) {
+  Registry(Game game) {
     this.game = game;
-    this.reset();;
+    this.reset();
   }
 
   void reset() {
     this.mementoList = new ArrayList<Memento>();
+    this.mementoList.add(firstPrevious, this.game.createMemento());
     this.firstPrevious = 0;
   }
 

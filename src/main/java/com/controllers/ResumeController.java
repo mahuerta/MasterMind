@@ -2,7 +2,7 @@ package com.controllers;
 
 import com.models.Session;
 
-public class ResumeController extends UseCaseController implements AcceptorController {
+public class ResumeController extends AcceptorController {
 
   public ResumeController(Session session) {
     super(session);

@@ -1,14 +1,14 @@
 package com.views.console;
 
-import com.controllers.UseCaseController;
+import com.controllers.Controller;
 import com.utils.Console;
 import com.views.Message;
 
 public class GameView {
 
-  private UseCaseController controller;
+  private Controller controller;
 
-  GameView(UseCaseController controller) {
+  GameView(Controller controller) {
     this.controller = controller;
   }
 

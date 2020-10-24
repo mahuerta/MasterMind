@@ -2,7 +2,7 @@ package com.controllers;
 
 import com.models.Session;
 
-public class RedoController extends UseCaseController {
+public class RedoController extends Controller {
 
   RedoController(Session session) {
     super(session);

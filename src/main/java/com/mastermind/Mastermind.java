@@ -3,18 +3,18 @@ package com.mastermind;
 import com.controllers.AcceptorController;
 import com.controllers.Logic;
 import com.views.View;
+import com.views.console.ConsoleView;
 
-public abstract class Mastermind {
+public class Mastermind {
 
   private Logic logic;
   private View view;
 
   protected Mastermind() {
     this.logic = new Logic();
-    this.view = this.createView();
+    this.view = new ConsoleView();
   }
 
-  protected abstract View createView();
 
   protected void play() {
     AcceptorController controller;
@@ -24,6 +24,10 @@ public abstract class Mastermind {
         this.view.interact(controller);
       }
     } while (controller != null);
+  }
+
+  public static void main(String[] args) {
+    new Mastermind().play();
   }
 
 }

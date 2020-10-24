@@ -11,7 +11,9 @@ class UndoCommand extends Command {
 
   protected void execute() {
     this.playController.undo();
-    new GameView(this.playController);
+
+    GameView gameView=new GameView(this.playController);
+    gameView.write();
   }
 
   protected boolean isActive() {

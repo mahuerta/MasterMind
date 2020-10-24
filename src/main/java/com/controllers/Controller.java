@@ -4,11 +4,11 @@ import com.models.ProposedCombination;
 import com.models.Result;
 import com.models.Session;
 
-public abstract class UseCaseController {
+public abstract class Controller {
 
   protected Session session;
 
-  UseCaseController(Session session) {
+  Controller(Session session) {
     this.session = session;
   }
 

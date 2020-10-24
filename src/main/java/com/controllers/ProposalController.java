@@ -4,9 +4,9 @@ import com.models.ProposedCombination;
 import com.models.Result;
 import com.models.Session;
 
-public class ActionController extends UseCaseController {
+public class ProposalController extends Controller {
 
-  public ActionController(Session session) {
+  public ProposalController(Session session) {
     super(session);
   }
 

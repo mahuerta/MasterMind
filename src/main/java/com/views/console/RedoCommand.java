@@ -12,8 +12,8 @@ class RedoCommand extends Command {
   @Override
   protected void execute() {
     this.playController.redo();
-    new GameView(this.playController);
-
+    GameView gameView = new GameView(this.playController);
+    gameView.write();
   }
 
   @Override
