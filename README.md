@@ -34,6 +34,8 @@ Puedes encontrar más información en los siguientes enlaces:
 - [x] [mvp.pm.withFacade](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withFacade)
 - [x] [mvp.pm.withoutDoubleDispatching](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withoutDoubleDispatching)
 - [x] [mvp.pm.withDoubleDispatching](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withDoubleDispatching) *
+- [x] [mvp.pm.withComposite](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withComposite)
+
 - [ ] Next Implementations
 
 (*) Versiones con diagramas
