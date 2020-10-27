@@ -6,17 +6,17 @@ import java.util.List;
 public abstract class Menu {
 
   private static final String OPTION = "----- Choose one option -----";
-  private List<Command> commandList;
+  private List<Command> commands;
 
   public Menu() {
-    this.commandList = new ArrayList<Command>();
+    this.commands = new ArrayList<Command>();
   }
 
   public void execute() {
     ArrayList<Command> commands = new ArrayList<Command>();
-    for (int i = 0; i < this.commandList.size(); i++) {
-      if (this.commandList.get(i).isActive()) {
-        commands.add(this.commandList.get(i));
+    for (int i = 0; i < this.commands.size(); i++) {
+      if (this.commands.get(i).isActive()) {
+        commands.add(this.commands.get(i));
       }
     }
     int option;
@@ -38,7 +38,7 @@ public abstract class Menu {
   }
 
   protected void addCommand(Command command) {
-    this.commandList.add(command);
+    this.commands.add(command);
   }
 
 }
