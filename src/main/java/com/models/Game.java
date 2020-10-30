@@ -49,10 +49,6 @@ public class Game {
     return this.proposedCombinations.get(position);
   }
 
-  public Result getResult(int position) {
-    return this.results.get(position);
-  }
-
   Memento createMemento() {
     Memento memento = new Memento(this.attempts);
     for (int i = 0; i < this.proposedCombinations.size(); i++) {
@@ -71,11 +67,11 @@ public class Game {
     }
   }
 
-  int getBlacks(int position) {
+  public int getBlacks(int position) {
     return this.results.get(position).getBlacks();
   }
 
-  int getWhites(int position) {
+  public int getWhites(int position) {
     return this.results.get(position).getWhites();
   }
 

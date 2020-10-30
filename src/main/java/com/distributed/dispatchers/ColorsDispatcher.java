@@ -1,23 +1,22 @@
 package com.distributed.dispatchers;
 
-import com.controllers.PlayController;
-import com.models.Color;
-import com.models.ProposedCombination;
-import java.util.List;
 
+import com.controllers.implementation.PlayControllerImplementation;
+import com.models.Color;
+import java.util.List;
 
 public class ColorsDispatcher extends Dispatcher {
 
-	public ColorsDispatcher(PlayController playController) {
-		super(playController);
+	public ColorsDispatcher(PlayControllerImplementation playControllerImplementation) {
+		super(playControllerImplementation);
 	}
 
 	@Override
 	public void dispatch() {
 		int position = this.tcpip.receiveInt();
-		ProposedCombination proposedCombination = ((PlayController) this.acceptorController).getProposedCombination(position);
-		this.tcpip.send(proposedCombination.getColors().size());
-		for (Color color: proposedCombination.getColors()) {
+		List<Color> colors = ((PlayControllerImplementation) this.acceptorController).getColors(position);
+		this.tcpip.send(colors.size());
+		for (Color color: colors) {
 			this.tcpip.send(color);
 		}
 	}

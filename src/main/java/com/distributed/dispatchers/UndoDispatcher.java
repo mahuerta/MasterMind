@@ -1,17 +1,17 @@
 package com.distributed.dispatchers;
 
 
-import com.controllers.PlayController;
+import com.controllers.implementation.PlayControllerImplementation;
 
 public class UndoDispatcher extends Dispatcher {
 
-	public UndoDispatcher(PlayController playController) {
-		super(playController);
+	public UndoDispatcher( PlayControllerImplementation playControllerImplementation) {
+		super(playControllerImplementation);
 	}
 
 	@Override
 	public void dispatch() {
-		((PlayController)this.acceptorController).undo();
+		((PlayControllerImplementation)this.acceptorController).undo();
 	}
 
 }

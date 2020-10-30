@@ -1,17 +1,17 @@
 package com.distributed.dispatchers;
 
 
-import com.controllers.PlayController;
+import com.controllers.implementation.PlayControllerImplementation;
 
 public class UndoableDispatcher extends Dispatcher {
 
-	public UndoableDispatcher(PlayController playController) {
-		super(playController);
+	public UndoableDispatcher(PlayControllerImplementation playControllerImplementation) {
+		super(playControllerImplementation);
 	}
 
 	@Override
 	public void dispatch() {
-		this.tcpip.send(((PlayController)this.acceptorController).undoable());
+		this.tcpip.send(((PlayControllerImplementation)this.acceptorController).undoable());
 	}
 
 }

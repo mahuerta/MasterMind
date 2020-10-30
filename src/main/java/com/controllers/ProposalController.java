@@ -1,4 +1,5 @@
 package com.controllers;
+import com.controllers.implementation.SessionImplementation;
 import com.models.Color;
 import com.models.Error;
 import com.models.Combination;
@@ -14,23 +15,15 @@ public class ProposalController extends Controller {
   }
 
   public boolean isWinner() {
-    return this.session.isWinner();
+    return ((SessionImplementation) this.session).isWinner();
   }
 
   public boolean isLooser() {
-    return this.session.isLooser();
-  }
-
-  public Result getResult(int i) {
-    return this.session.getResult(i);
-  }
-
-  public ProposedCombination getProposedCombination(int i) {
-    return this.session.getProposedCombination(i);
+    return ((SessionImplementation) this.session).isLooser();
   }
 
   public int getAttempts() {
-    return this.session.getAttempts();
+    return ((SessionImplementation) this.session).getAttempts();
   }
 
   public Error addProposedCombination(List<Color> colors) {
@@ -51,25 +44,25 @@ public class ProposalController extends Controller {
       }
     }
     if (error == null){
-      this.session.addProposedCombination(colors);
-      if (this.session.isWinner() || this.session.isLooser()) {
-        this.session.next();
-      }
-    }
+      ((SessionImplementation) this.session).addProposedCombination(colors);
+      if (((SessionImplementation) this.session).isWinner()
+          || ((SessionImplementation) this.session).isLooser()) {
+        ((SessionImplementation) this.session).next();
+      }    }
     return error;
   }
 
 
-  int getBlacks(int position) {
-    return this.session.getBlacks(position);
+  public int getBlacks(int position) {
+    return ((SessionImplementation) this.session).getBlacks(position);
   }
 
-  int getWhites(int position) {
-    return this.session.getWhites(position);
+  public int getWhites(int position) {
+    return ((SessionImplementation) this.session).getWhites(position);
   }
 
-  List<Color> getColors(int position) {
-    return this.session.getColors(position);
+  public List<Color> getColors(int position) {
+    return ((SessionImplementation) this.session).getColors(position);
   }
 
 }

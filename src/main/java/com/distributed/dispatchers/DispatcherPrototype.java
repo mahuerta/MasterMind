@@ -3,7 +3,6 @@ package com.distributed.dispatchers;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.distributed.dispatchers.TCPIP;
 
 public class DispatcherPrototype {
 	
@@ -22,8 +21,8 @@ public class DispatcherPrototype {
 	}
 
 	public void dispatch(FrameType frameType) {
-		Dispatcher d = this.dispatcherMap.get(frameType);
-		d.dispatch();
+		Dispatcher dispatcher = this.dispatcherMap.get(frameType);
+		dispatcher.dispatch();
 	}
 
 	public void serve() {

@@ -1,18 +1,18 @@
 package com.distributed.dispatchers;
 
 
-import com.controllers.ResumeController;
+import com.controllers.implementation.ResumeControllerImplementation;
 
 public class ResumeDispatcher extends Dispatcher {
 
-	public ResumeDispatcher(ResumeController resumeController) {
-		super(resumeController);
+	public ResumeDispatcher(ResumeControllerImplementation resumeControllerImplementation) {
+		super(resumeControllerImplementation);
 	}
 
 	@Override
 	public void dispatch() {
 		boolean newGame = this.tcpip.receiveBoolean();
-		((ResumeController)this.acceptorController).resume(newGame);
+		((ResumeControllerImplementation)this.acceptorController).resume(newGame);
 	}
 
 }

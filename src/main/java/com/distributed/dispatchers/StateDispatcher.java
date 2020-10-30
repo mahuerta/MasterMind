@@ -1,12 +1,12 @@
 package com.distributed.dispatchers;
 
 
-import com.controllers.PlayController;
+import com.controllers.implementation.PlayControllerImplementation;
 
 public class StateDispatcher extends Dispatcher {
 
-	public StateDispatcher(PlayController playController) {
-		super(playController);
+	public StateDispatcher(PlayControllerImplementation playControllerImplementation) {
+		super(playControllerImplementation);
 	}
 
 	@Override

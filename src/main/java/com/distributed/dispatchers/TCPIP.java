@@ -1,11 +1,12 @@
 package com.distributed.dispatchers;
 
+
 import com.models.Color;
-import com.models.Result;
+import com.models.Error;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import com.models.Error;
+
 
 public class TCPIP extends com.utils.TCPIP {
 
@@ -51,15 +52,6 @@ public class TCPIP extends com.utils.TCPIP {
 		}
 	}
 
-	public void send(Result value) {
-		if (value == null) {
-			this.send("null");
-		}else {
-			this.send(value.getBlacks()+" negras "+value.getWhites()+" blancas.");
-		}
-	}
-
-
 	public void send(Error value) {
 		if (value == null) {
 			this.send("null");
@@ -70,7 +62,7 @@ public class TCPIP extends com.utils.TCPIP {
 
 	public Error receiveError() {
 		String error = this.receiveLine();
-		if (error.isEmpty() || error.equals("null")) {
+		if (error.equals("null")) {
 			return null;
 		}
 		return Error.valueOf(error);

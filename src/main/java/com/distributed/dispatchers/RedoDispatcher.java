@@ -1,17 +1,17 @@
 package com.distributed.dispatchers;
 
 
-import com.controllers.PlayController;
+import com.controllers.implementation.PlayControllerImplementation;
 
 public class RedoDispatcher extends Dispatcher {
 
-	public RedoDispatcher(PlayController playController) {
-		super(playController);
+	public RedoDispatcher(PlayControllerImplementation playControllerImplementation) {
+		super(playControllerImplementation);
 	}
 
 	@Override
 	public void dispatch() {
-		((PlayController)this.acceptorController).redo();
+		((PlayControllerImplementation)this.acceptorController).redo();
 	}
 
 }

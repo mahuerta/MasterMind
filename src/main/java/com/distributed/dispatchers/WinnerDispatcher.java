@@ -1,17 +1,17 @@
 package com.distributed.dispatchers;
 
 
-import com.controllers.PlayController;
+import com.controllers.implementation.PlayControllerImplementation;
 
 public class WinnerDispatcher extends Dispatcher {
 
-	public WinnerDispatcher(PlayController playController) {
-		super(playController);
+	public WinnerDispatcher(PlayControllerImplementation playControllerImplementation) {
+		super(playControllerImplementation);
 	}
 
 	@Override
 	public void dispatch() {
-		this.tcpip.send(((PlayController)this.acceptorController).isWinner());
+		this.tcpip.send(((PlayControllerImplementation)this.acceptorController).isWinner());
 	}
 
 }

@@ -1,16 +1,17 @@
 package com.distributed.dispatchers;
 
-import com.controllers.PlayController;
+
+import com.controllers.implementation.PlayControllerImplementation;
 
 public class AttemptsDispatcher extends Dispatcher {
 
-	public AttemptsDispatcher(PlayController playController) {
-		super(playController);
+	public AttemptsDispatcher(PlayControllerImplementation playControllerImplementation) {
+		super(playControllerImplementation);
 	}
 
 	@Override
 	public void dispatch() {
-		this.tcpip.send(((PlayController)this.acceptorController).getAttempts());
+		this.tcpip.send(((PlayControllerImplementation)this.acceptorController).getAttempts());
 	}
 
 }

@@ -4,24 +4,12 @@ import com.distributed.dispatchers.FrameType;
 import com.distributed.dispatchers.TCPIP;
 import com.models.Session;
 
-public class ResumeController extends AcceptorController {
+public abstract class ResumeController extends AcceptorController {
 
-  public ResumeController(Session session, TCPIP tcpip) {
-    super(session, tcpip);
+  public ResumeController(Session session) {
+    super(session);
   }
-
-  public void resume(boolean isResumed) {
-    if (this.tcpip == null) {
-      if (isResumed) {
-        this.session.reset();
-      } else {
-        this.session.next();
-      }
-    } else {
-      this.tcpip.send(FrameType.NEW_GAME.name());
-      this.tcpip.send(isResumed);
-    }
-  }
+  public abstract void resume(boolean newGame);
 
   @Override
   public void accept(ControllerVisitor controllersVisitor) {

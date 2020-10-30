@@ -6,9 +6,18 @@ import com.mastermind.Mastermind;
 
 public class MastermindClient extends Mastermind {
 	
+	private LogicProxy logicProxy;
+	
 	@Override
-	protected Boolean isStandalone() {
-		return false;
+	protected Logic createLogic() {
+		this.logicProxy = new LogicProxy();
+		return this.logicProxy;
+	}
+	
+	@Override
+	protected void play() {
+		super.play();
+		this.logicProxy.close();
 	}
 	
 	public static void main(String[] args) {

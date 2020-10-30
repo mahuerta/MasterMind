@@ -1,17 +1,17 @@
 package com.distributed.dispatchers;
 
 
-import com.controllers.StartController;
+import com.controllers.implementation.StartControllerImplementation;
 
 public class StartDispatcher extends Dispatcher {
 
-	public StartDispatcher(StartController startController) {
-		super(startController);
+	public StartDispatcher(StartControllerImplementation startControllerImplementation) {
+		super(startControllerImplementation);
 	}
 
 	@Override
 	public void dispatch() {
-		((StartController) this.acceptorController).start();
+		((StartControllerImplementation) this.acceptorController).start();
 	}
 
 }

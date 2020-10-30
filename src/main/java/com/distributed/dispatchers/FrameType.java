@@ -13,9 +13,9 @@ public enum FrameType {
 	COLORS, 
 	PROPOSECOMBINATION, 
 	NEW_GAME,
-	RESULT,
 	BLACKS,
 	WHITES,
+	RESULT,
 	CLOSE;
 
 	public static FrameType parser(String string) {
