@@ -1,8 +1,8 @@
 package com.controllers;
 
-import com.distributed.dispatchers.TCPIP;
 import java.util.HashMap;
 import java.util.Map;
+import com.distributed.dispatchers.TCPIP;
 import com.models.Session;
 import com.models.StateValue;
 
@@ -11,7 +11,6 @@ public class Logic {
   private Session session;
 
   private Map<StateValue, AcceptorController> controllers;
-  protected StartController startController;
 
   protected PlayController playController;
 
@@ -21,7 +20,7 @@ public class Logic {
 
 
   public Logic(Boolean isStandAlone) {
-    if(isStandAlone){
+    if (isStandAlone) {
       this.tcpip = null;
     } else {
       this.tcpip = TCPIP.createClientSocket();
@@ -29,13 +28,12 @@ public class Logic {
 
     this.session = new Session(this.tcpip);
     this.controllers = new HashMap<StateValue, AcceptorController>();
-    this.startController = new StartController(this.session, this.tcpip);
-    this.controllers.put(StateValue.INITIAL, this.startController);
     this.playController = new PlayController(this.session, this.tcpip);
     this.controllers.put(StateValue.IN_GAME, this.playController);
     this.resumeController = new ResumeController(this.session, this.tcpip);
     this.controllers.put(StateValue.RESUME, this.resumeController);
-    this.controllers.put(StateValue.EXIT, null);  }
+    this.controllers.put(StateValue.EXIT, null);
+  }
 
   public AcceptorController getController() {
     return this.controllers.get(this.session.getValueState());

@@ -13,9 +13,9 @@ import java.util.List;
 public class PlayController extends AcceptorController {
 
   private ProposalController proposalController;
-  
+
   private UndoController undoController;
-  
+
   private RedoController redoController;
 
   public PlayController(Session session, TCPIP tcpip) {
@@ -44,12 +44,14 @@ public class PlayController extends AcceptorController {
       this.undoController.undo();
     } else {
       this.tcpip.send(FrameType.UNDO.name());
-    }  }
+    }
+  }
 
   @Override
   public void accept(ControllerVisitor controllerVisitor) {
     controllerVisitor.visit(this);
   }
+
   public void redo() {
     if (this.tcpip == null) {
       this.redoController.redo();
@@ -112,12 +114,12 @@ public class PlayController extends AcceptorController {
     return this.tcpip.receiveInt();
   }
 
-  public Result getResult(int i){
+  public Result getResult(int i) {
     if (this.tcpip == null) {
       return this.proposalController.getResult(i);
     }
     this.tcpip.send(FrameType.RESULT.name());
-    return new Result(getBlacks(i),getWhites(i));
+    return new Result(getBlacks(i), getWhites(i));
   }
 
   public int getWhites(int position) {

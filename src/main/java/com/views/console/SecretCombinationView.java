@@ -1,13 +1,12 @@
 package com.views.console;
 
-import com.controllers.StartController;
 import com.models.SecretCombination;
 import com.utils.WithConsoleView;
 import com.views.Message;
 
 class SecretCombinationView extends WithConsoleView {
 
-  SecretCombinationView(StartController startController) {
+  SecretCombinationView() {
     super();
   }
 

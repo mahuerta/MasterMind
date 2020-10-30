@@ -5,13 +5,13 @@ import com.controllers.PlayController;
 
 public class RedoDispatcher extends Dispatcher {
 
-	public RedoDispatcher(PlayController playController) {
-		super(playController);
-	}
+  public RedoDispatcher(PlayController playController) {
+    super(playController);
+  }
 
-	@Override
-	public void dispatch() {
-		((PlayController)this.acceptorController).redo();
-	}
+  @Override
+  public void dispatch() {
+    ((PlayController) this.acceptorController).redo();
+  }
 
 }

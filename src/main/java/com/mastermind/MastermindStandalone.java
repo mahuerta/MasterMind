@@ -1,14 +1,14 @@
 package com.mastermind;
 
-public class MastermindStandalone extends Mastermind{
+public class MastermindStandalone extends Mastermind {
 
-	@Override
-	protected Boolean isStandalone() {
-		return true;
-	}
+  @Override
+  protected Boolean isStandalone() {
+    return true;
+  }
 
-	public static void main(String[] args) {
-		new MastermindStandalone().play();
-	}
+  public static void main(String[] args) {
+    new MastermindStandalone().play();
+  }
 
 }
