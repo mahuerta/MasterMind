@@ -22,11 +22,11 @@ class Memento {
     this.results.add(result);
   }
 
-  ProposedCombination getProposedCombination(int position){
+  ProposedCombination getProposedCombination(int position) {
     return this.proposedCombinations.get(position);
   }
 
-  Result getResult(int position){
+  Result getResult(int position) {
     return this.results.get(position);
   }
 
@@ -34,9 +34,8 @@ class Memento {
     return proposedCombinations.size();
   }
 
-  int getAttempts(){
+  int getAttempts() {
     return this.attempts;
   }
-
 
 }

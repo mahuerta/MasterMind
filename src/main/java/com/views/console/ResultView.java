@@ -1,7 +1,6 @@
 package com.views.console;
 
 import com.controllers.PlayController;
-import com.models.Result;
 import com.utils.WithConsoleView;
 import com.views.Message;
 

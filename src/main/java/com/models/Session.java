@@ -1,8 +1,8 @@
 package com.models;
 
+import java.util.List;
 import com.distributed.dispatchers.FrameType;
 import com.utils.TCPIP;
-import java.util.List;
 
 public class Session {
 
@@ -52,7 +52,8 @@ public class Session {
       return this.state.getValueState();
     }
     this.tcpip.send(FrameType.STATE.name());
-    return StateValue.values()[this.tcpip.receiveInt()];  }
+    return StateValue.values()[this.tcpip.receiveInt()];
+  }
 
   public void reset() {
     this.game.reset();
@@ -87,4 +88,5 @@ public class Session {
   public List<Color> getColors(int position) {
     return this.game.getColors(position);
   }
+
 }

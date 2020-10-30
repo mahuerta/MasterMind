@@ -27,4 +27,5 @@ public class ResumeController extends AcceptorController {
   public void accept(ControllerVisitor controllersVisitor) {
     controllersVisitor.visit(this);
   }
+
 }

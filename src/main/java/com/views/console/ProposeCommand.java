@@ -3,7 +3,6 @@ package com.views.console;
 import com.controllers.PlayController;
 import com.models.Color;
 import com.models.Error;
-import com.models.ProposedCombination;
 import com.views.Message;
 import java.util.List;
 

@@ -1,11 +1,12 @@
 package com.controllers;
+
+import java.util.List;
 import com.models.Color;
-import com.models.Error;
 import com.models.Combination;
+import com.models.Error;
 import com.models.ProposedCombination;
 import com.models.Result;
 import com.models.Session;
-import java.util.List;
 
 public class ProposalController extends Controller {
 
@@ -42,7 +43,7 @@ public class ProposalController extends Controller {
         if (colors.get(i) == null) {
           error = Error.WRONG_CHARACTERS;
         } else {
-          for (int j = i+1; j < colors.size(); j++) {
+          for (int j = i + 1; j < colors.size(); j++) {
             if (colors.get(i) == colors.get(j)) {
               error = Error.DUPLICATED;
             }
@@ -50,12 +51,14 @@ public class ProposalController extends Controller {
         }
       }
     }
-    if (error == null){
+
+    if (error == null) {
       this.session.addProposedCombination(colors);
       if (this.session.isWinner() || this.session.isLooser()) {
         this.session.next();
       }
     }
+
     return error;
   }
 

@@ -1,7 +1,5 @@
 package com.mastermind;
 
-import com.controllers.Logic;
-
 public class MastermindStandalone extends Mastermind{
 
 	@Override

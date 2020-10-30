@@ -3,7 +3,6 @@ package com.distributed;
 import com.controllers.Logic;
 import com.distributed.dispatchers.AttemptsDispatcher;
 import com.distributed.dispatchers.BlacksDispatcher;
-import com.distributed.dispatchers.Dispatcher;
 import com.distributed.dispatchers.ResultDispatcher;
 import com.distributed.dispatchers.ColorsDispatcher;
 import com.distributed.dispatchers.DispatcherPrototype;
