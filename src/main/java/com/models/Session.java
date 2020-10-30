@@ -1,15 +1,21 @@
 package com.models;
 
+import com.distributed.dispatchers.FrameType;
+import com.utils.TCPIP;
+import java.util.List;
+
 public class Session {
 
   private State state;
   private Game game;
   private Registry registry;
+  private TCPIP tcpip;
 
-  public Session() {
+  public Session(TCPIP tcpip) {
     this.state = new State();
     this.game = new Game();
     this.registry = new Registry(this.game);
+    this.tcpip = tcpip;
   }
 
   public boolean isWinner() {
@@ -32,8 +38,8 @@ public class Session {
     return this.game.getAttempts();
   }
 
-  public void addProposedCombination(ProposedCombination proposedCombination) {
-    this.game.addProposedCombination(proposedCombination);
+  public void addProposedCombination(List<Color> colors) {
+    this.game.addProposedCombination(colors);
     this.registry.registry();
   }
 
@@ -42,8 +48,11 @@ public class Session {
   }
 
   public StateValue getValueState() {
-    return this.state.getValueState();
-  }
+    if (this.tcpip == null) {
+      return this.state.getValueState();
+    }
+    this.tcpip.send(FrameType.STATE.name());
+    return StateValue.values()[this.tcpip.receiveInt()];  }
 
   public void reset() {
     this.game.reset();
@@ -67,4 +76,15 @@ public class Session {
     return this.registry.redoable();
   }
 
+  public int getBlacks(int position) {
+    return this.game.getBlacks(position);
+  }
+
+  public int getWhites(int position) {
+    return this.game.getWhites(position);
+  }
+
+  public List<Color> getColors(int position) {
+    return this.game.getColors(position);
+  }
 }

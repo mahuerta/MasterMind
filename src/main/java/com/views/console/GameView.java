@@ -1,26 +1,26 @@
 package com.views.console;
 
 import com.controllers.Controller;
+import com.controllers.PlayController;
 import com.utils.Console;
 import com.views.Message;
 
 public class GameView {
 
-  private Controller controller;
+  private PlayController playController;
 
-  GameView(Controller controller) {
-    this.controller = controller;
+  GameView(PlayController playController) {
+    this.playController = playController;
   }
 
   void write() {
 
     Console.instance().writeln();
-    Message.ATTEMPTS.writeln(controller.getAttempts());
-    new SecretCombinationView().writeln();
+    Message.ATTEMPTS.writeln(playController.getAttempts());
 
-    for (int i = 0; i < controller.getAttempts(); i++) {
-      new ProposedCombinationView().write(controller.getProposedCombination(i));
-      new ResultView(controller.getResult(i)).writeln();
+    for (int i = 0; i < playController.getAttempts(); i++) {
+      new ProposedCombinationView(playController).write(i);
+      new ResultView(playController).writeln(i);
     }
   }
 }

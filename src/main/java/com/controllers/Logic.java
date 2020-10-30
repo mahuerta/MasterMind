@@ -1,5 +1,6 @@
 package com.controllers;
 
+import com.distributed.dispatchers.TCPIP;
 import java.util.HashMap;
 import java.util.Map;
 import com.models.Session;
@@ -10,17 +11,37 @@ public class Logic {
   private Session session;
 
   private Map<StateValue, AcceptorController> controllers;
+  protected StartController startController;
 
-  public Logic() {
-    this.session = new Session();
-    this.controllers = new HashMap<>();
-    this.controllers.put(StateValue.IN_GAME, new PlayController(this.session));
-    this.controllers.put(StateValue.RESUME, new ResumeController(this.session));
-    this.controllers.put(StateValue.EXIT, null);
-  }
+  protected PlayController playController;
+
+  protected ResumeController resumeController;
+
+  private TCPIP tcpip;
+
+
+  public Logic(Boolean isStandAlone) {
+    if(isStandAlone){
+      this.tcpip = null;
+    } else {
+      this.tcpip = TCPIP.createClientSocket();
+    }
+
+    this.session = new Session(this.tcpip);
+    this.controllers = new HashMap<StateValue, AcceptorController>();
+    this.startController = new StartController(this.session, this.tcpip);
+    this.controllers.put(StateValue.INITIAL, this.startController);
+    this.playController = new PlayController(this.session, this.tcpip);
+    this.controllers.put(StateValue.IN_GAME, this.playController);
+    this.resumeController = new ResumeController(this.session, this.tcpip);
+    this.controllers.put(StateValue.RESUME, this.resumeController);
+    this.controllers.put(StateValue.EXIT, null);  }
 
   public AcceptorController getController() {
     return this.controllers.get(this.session.getValueState());
   }
 
+  public void close() {
+    this.tcpip.close();
+  }
 }

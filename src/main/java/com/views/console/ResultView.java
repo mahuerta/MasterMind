@@ -1,19 +1,20 @@
 package com.views.console;
 
+import com.controllers.PlayController;
 import com.models.Result;
 import com.utils.WithConsoleView;
 import com.views.Message;
 
 class ResultView extends WithConsoleView {
 
-  private Result result;
+  private PlayController playController;
 
-  ResultView(Result result) {
-    this.result = result;
+  ResultView(PlayController playController) {
+    this.playController = playController;
   }
 
-  void writeln() {
-    Message.RESULT.writeln(this.result.getBlacks(), this.result.getWhites());
+  void writeln(int i) {
+    Message.RESULT.writeln(this.playController.getBlacks(i), this.playController.getWhites(i));
   }
 
 }

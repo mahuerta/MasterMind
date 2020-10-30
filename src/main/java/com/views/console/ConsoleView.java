@@ -4,14 +4,17 @@ import com.controllers.AcceptorController;
 import com.controllers.ControllerVisitor;
 import com.controllers.PlayController;
 import com.controllers.ResumeController;
+import com.controllers.StartController;
 import com.views.View;
 
 public class ConsoleView extends View implements ControllerVisitor {
 
+  private StartView startView;
   private PlayView playView;
   private ResumeView resumeView;
 
   public ConsoleView() {
+    this.startView = new StartView();
     this.playView = new PlayView();
     this.resumeView = new ResumeView();
   }
@@ -19,6 +22,11 @@ public class ConsoleView extends View implements ControllerVisitor {
   @Override
   public void interact(AcceptorController acceptorController) {
     acceptorController.accept(this);
+  }
+
+  @Override
+  public void visit(StartController startController) {
+    this.startView.interact(startController);
   }
 
   @Override

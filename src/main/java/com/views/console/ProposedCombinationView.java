@@ -1,5 +1,6 @@
 package com.views.console;
 
+import com.controllers.PlayController;
 import com.models.Color;
 import com.models.Combination;
 import com.models.Error;
@@ -7,17 +8,23 @@ import com.models.ProposedCombination;
 import com.utils.WithConsoleView;
 import com.views.Message;
 import java.util.ArrayList;
+import java.util.List;
 
 class ProposedCombinationView extends WithConsoleView {
 
-  void write(ProposedCombination proposedCombination) {
-    for (Color color : proposedCombination.getColors()) {
+  private PlayController playController;
+
+  ProposedCombinationView(PlayController playController) {
+    this.playController = playController;
+  }
+    void write(int i) {
+    for (Color color : this.playController.getColors(i)) {
       new ColorView(color).write();
     }
   }
 
-  public ProposedCombination read() {
-    ProposedCombination proposedCombination = new ProposedCombination(new ArrayList<Color>());
+  public List<Color> read() {
+    List<Color> colors = new ArrayList<Color>();
     Error error;
     do {
       error = null;
@@ -26,26 +33,28 @@ class ProposedCombinationView extends WithConsoleView {
       if (characters.length() > Combination.getWidth()) {
         error = Error.WRONG_LENGTH;
       } else {
+
         for (int i = 0; i < characters.length(); i++) {
           Color color = ColorView.getInstance(characters.charAt(i));
           if (color == null) {
             error = Error.WRONG_CHARACTERS;
           } else {
-            if (proposedCombination.getColors().contains(color)) {
+
+            if (colors.contains(color)) {
               error = Error.DUPLICATED;
             } else {
-              proposedCombination.getColors().add(color);
+              colors.add(color);
             }
           }
         }
       }
       if (error != null) {
         new ErrorView(error).writeln();
-        proposedCombination.getColors().clear();
+        colors.clear();
       }
     } while (error != null);
 
-    return proposedCombination;
+    return colors;
   }
 
 }

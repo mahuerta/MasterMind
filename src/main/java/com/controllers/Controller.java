@@ -3,6 +3,7 @@ package com.controllers;
 import com.models.ProposedCombination;
 import com.models.Result;
 import com.models.Session;
+import com.models.StateValue;
 
 public abstract class Controller {
 
@@ -21,8 +22,13 @@ public abstract class Controller {
 
   }
 
+  public StateValue getValueState() {
+    return this.session.getValueState();
+  }
+
   public Result getResult(int i) {
     return this.session.getResult(i);
   }
+
 
 }

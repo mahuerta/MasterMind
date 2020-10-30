@@ -26,7 +26,8 @@ public class Game {
     this.attempts = 0;
   }
 
-  public void addProposedCombination(ProposedCombination proposedCombination) {
+  public void addProposedCombination(List<Color> colors) {
+    ProposedCombination proposedCombination = new ProposedCombination(colors);
     this.proposedCombinations.add(proposedCombination);
     this.results.add(this.secretCombination.getResult(proposedCombination));
     this.attempts++;
@@ -70,4 +71,15 @@ public class Game {
     }
   }
 
+  int getBlacks(int position) {
+    return this.results.get(position).getBlacks();
+  }
+
+  int getWhites(int position) {
+    return this.results.get(position).getWhites();
+  }
+
+  public List<Color> getColors(int position) {
+    return this.proposedCombinations.get(position).colors;
+  }
 }

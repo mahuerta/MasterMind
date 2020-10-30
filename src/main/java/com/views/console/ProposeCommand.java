@@ -1,8 +1,11 @@
 package com.views.console;
 
 import com.controllers.PlayController;
+import com.models.Color;
+import com.models.Error;
 import com.models.ProposedCombination;
 import com.views.Message;
+import java.util.List;
 
 class ProposeCommand extends Command {
 
@@ -12,13 +15,17 @@ class ProposeCommand extends Command {
 
   @Override
   protected void execute() {
-    if (playController.getAttempts() == 0) {
-      new StartView().interact();
-    }
 
-    this.put(playController);
+    Error error;
 
-    new GameView(playController).write();
+    do {
+      List<Color> colors = new ProposedCombinationView(this.playController).read();
+      error = this.playController.addProposedCombination(colors);
+      if (error != null) {
+        new ErrorView(error).writeln();
+      }
+    } while (error != null);
+    new GameView(this.playController).write();
 
     if (playController.isWinner()) {
       Message.WINNER.writeln();
@@ -26,16 +33,6 @@ class ProposeCommand extends Command {
       Message.LOOSER.writeln();
     }
   }
-
-
-  private void put(PlayController playController) {
-
-    ProposedCombination proposedCombination = new ProposedCombinationView().read();
-    playController.addProposedCombination(proposedCombination);
-
-  }
-
-
 
   @Override
   protected boolean isActive() {

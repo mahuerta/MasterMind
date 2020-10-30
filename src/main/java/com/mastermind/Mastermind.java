@@ -5,29 +5,28 @@ import com.controllers.Logic;
 import com.views.View;
 import com.views.console.ConsoleView;
 
-public class Mastermind {
+public abstract class Mastermind {
 
   private Logic logic;
   private View view;
 
   protected Mastermind() {
-    this.logic = new Logic();
+    this.logic = new Logic(this.isStandalone());
     this.view = new ConsoleView();
   }
 
+  protected abstract Boolean isStandalone();
 
   protected void play() {
-    AcceptorController controller;
+    AcceptorController acceptorController;
     do {
-      controller = this.logic.getController();
-      if (controller != null) {
-        this.view.interact(controller);
+      acceptorController = this.logic.getController();
+      if (acceptorController != null) {
+        this.view.interact(acceptorController);
       }
-    } while (controller != null);
+    } while (acceptorController != null);
+    if (!this.isStandalone()) {
+      this.logic.close();
+    }
   }
-
-  public static void main(String[] args) {
-    new Mastermind().play();
   }
-
-}
