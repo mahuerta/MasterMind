@@ -1,6 +1,5 @@
 package com.views.console;
 
-import com.controllers.Controller;
 import com.controllers.PlayController;
 import com.utils.Console;
 import com.views.Message;

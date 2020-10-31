@@ -21,7 +21,7 @@ public abstract class Mastermind {
     AcceptorController acceptorController;
     do {
       acceptorController = this.logic.getController();
-      if (acceptorController != null){
+      if (acceptorController != null) {
         this.view.interact(acceptorController);
       }
     } while (acceptorController != null);

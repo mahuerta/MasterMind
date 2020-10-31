@@ -1,6 +1,5 @@
 package com.controllers;
 
-import com.distributed.dispatchers.TCPIP;
 import java.util.HashMap;
 import java.util.Map;
 import com.models.Session;
@@ -12,7 +11,7 @@ public class Logic {
 
   protected Map<StateValue, AcceptorController> controllers;
 
-  protected Logic () {
+  protected Logic() {
     this.controllers = new HashMap<StateValue, AcceptorController>();
   }
 

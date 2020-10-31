@@ -1,7 +1,5 @@
 package com.controllers;
 
-import com.models.ProposedCombination;
-import com.models.Result;
 import com.models.Session;
 import com.models.StateValue;
 

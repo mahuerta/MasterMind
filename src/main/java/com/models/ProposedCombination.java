@@ -29,7 +29,7 @@ public class ProposedCombination extends Combination {
 
   ProposedCombination copy() {
     List<Color> colors = new ArrayList<Color>();
-    for(Color color: this.colors) {
+    for (Color color : this.colors) {
       colors.add(color);
     }
     return new ProposedCombination(colors);

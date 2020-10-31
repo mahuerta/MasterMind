@@ -4,7 +4,6 @@ import com.controllers.PlayController;
 import com.models.Color;
 import com.models.Combination;
 import com.models.Error;
-import com.models.ProposedCombination;
 import com.utils.WithConsoleView;
 import com.views.Message;
 import java.util.ArrayList;
@@ -17,7 +16,8 @@ class ProposedCombinationView extends WithConsoleView {
   ProposedCombinationView(PlayController playController) {
     this.playController = playController;
   }
-    void write(int i) {
+
+  void write(int i) {
     for (Color color : this.playController.getColors(i)) {
       new ColorView(color).write();
     }

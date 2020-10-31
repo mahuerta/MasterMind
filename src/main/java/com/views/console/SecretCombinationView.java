@@ -1,6 +1,5 @@
 package com.views.console;
 
-import com.controllers.Controller;
 import com.controllers.StartController;
 import com.models.SecretCombination;
 import com.utils.WithConsoleView;
@@ -9,6 +8,7 @@ import com.views.Message;
 class SecretCombinationView extends WithConsoleView {
 
   private StartController startController;
+
   SecretCombinationView(StartController startController) {
     super();
     this.startController = startController;
