@@ -9,7 +9,7 @@ public class Logic {
 
   private Session session;
 
-  private Map<StateValue, AcceptorController> controllers;
+  private Map<StateValue, Controller> controllers;
 
   public Logic() {
     this.session = new Session();
@@ -19,7 +19,7 @@ public class Logic {
     this.controllers.put(StateValue.EXIT, null);
   }
 
-  public AcceptorController getController() {
+  public Controller getController() {
     return this.controllers.get(this.session.getValueState());
   }
 

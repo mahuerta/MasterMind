@@ -1,30 +1,28 @@
 package com.mastermind;
 
-import com.controllers.AcceptorController;
+import com.controllers.Controller;
 import com.controllers.Logic;
-import com.views.View;
-import com.views.console.ConsoleView;
 
-public abstract class Mastermind {
+public class Mastermind {
 
   private Logic logic;
-  private View view;
 
   protected Mastermind() {
     this.logic = new Logic();
-    this.view = new ConsoleView();
   }
 
-  protected abstract View createView();
-
   protected void play() {
-    AcceptorController acceptorController;
+    Controller controller;
     do {
-      acceptorController = this.logic.getController();
-      if (acceptorController != null) {
-        this.view.interact(acceptorController);
+      controller = this.logic.getController();
+      if (controller != null) {
+        controller.control();
       }
-    } while (acceptorController != null);
+    } while (controller != null);
+  }
+
+  public static void main(String[] args) {
+    new Mastermind().play();
   }
 
 }

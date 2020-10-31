@@ -1,16 +1,21 @@
 package com.utils;
 
-public abstract class Command {
+public abstract class Command extends WithConsoleView {
 
   protected String title;
 
+  protected boolean isActive;
+
   protected Command(String title) {
     this.title = title;
+    this.isActive = false;
   }
 
-  protected abstract void execute();
+  public abstract void setActive(boolean isActive);
 
-  protected abstract boolean isActive();
+  protected boolean isActive() {
+    return this.isActive;
+  }
 
   String getTitle() {
     return this.title;

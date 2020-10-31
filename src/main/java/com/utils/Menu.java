@@ -1,44 +1,40 @@
 package com.utils;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
-public abstract class Menu {
+public class Menu extends WithConsoleView {
 
   private static final String OPTION = "----- Choose one option -----";
-  private List<Command> commands;
 
-  public Menu() {
-    this.commands = new ArrayList<Command>();
+  private ArrayList<Command> commandSet;
+
+  public Menu(Set<Command> commandSet) {
+    this.commandSet = new ArrayList<Command>(commandSet);
   }
 
-  public void execute() {
+  public Command execute() {
     ArrayList<Command> commands = new ArrayList<Command>();
-    for (int i = 0; i < this.commands.size(); i++) {
-      if (this.commands.get(i).isActive()) {
-        commands.add(this.commands.get(i));
+    for (int i = 0; i < this.commandSet.size(); i++) {
+      if (this.commandSet.get(i).isActive()) {
+        commands.add(this.commandSet.get(i));
       }
     }
-    int option;
-    Console console = Console.instance();
     boolean error;
+    int option;
     do {
       error = false;
-      console.writeln();
-      console.writeln(Menu.OPTION);
+      this.console.writeln();
+      this.console.writeln(Menu.OPTION);
       for (int i = 0; i < commands.size(); i++) {
-        console.writeln((i + 1) + ") " + commands.get(i).getTitle());
+        this.console.writeln((i + 1) + ") " + commands.get(i).getTitle());
       }
-      option = console.readInt("") - 1;
+      option = this.console.readInt("") - 1;
       if (!new ClosedInterval(0, commands.size() - 1).isIncluded(option)) {
         error = true;
       }
     } while (error);
-    commands.get(option).execute();
-  }
-
-  protected void addCommand(Command command) {
-    this.commands.add(command);
+    return commands.get(option);
   }
 
 }

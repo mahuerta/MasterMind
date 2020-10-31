@@ -1,33 +1,36 @@
-package com.views.console;
+package com.controllers;
 
+import java.util.ArrayList;
 import com.models.Color;
 import com.models.Combination;
 import com.models.Error;
 import com.models.ProposedCombination;
-import com.utils.WithConsoleView;
-import com.views.Message;
-import java.util.ArrayList;
+import com.models.Session;
+import com.views.ColorView;
+import com.views.ErrorView;
+import com.views.MessageView;
+import com.views.ProposedCombinationView;
 
-class ProposedCombinationView extends WithConsoleView {
+public class ProposedCombinationController extends InGameController {
 
-  void write(ProposedCombination proposedCombination) {
-    for (Color color : proposedCombination.getColors()) {
-      new ColorView(color).write();
-    }
+  ProposedCombinationController(Session session) {
+    super(session);
   }
 
-  public ProposedCombination read() {
+  @Override
+  protected void inGameControl() {
+
     ProposedCombination proposedCombination = new ProposedCombination(new ArrayList<Color>());
     Error error;
     do {
       error = null;
-      Message.PROPOSED_COMBINATION.write();
-      String characters = this.console.readString();
+      MessageView.PROPOSED_COMBINATION.write();
+      String characters = new ProposedCombinationView().read();
       if (characters.length() > Combination.getWidth()) {
         error = Error.WRONG_LENGTH;
       } else {
         for (int i = 0; i < characters.length(); i++) {
-          Color color = ColorView.getInstance(characters.charAt(i));
+          Color color = Color.values()[ColorView.getInstance(characters.charAt(i))];
           if (color == null) {
             error = Error.WRONG_CHARACTERS;
           } else {
@@ -40,12 +43,14 @@ class ProposedCombinationView extends WithConsoleView {
         }
       }
       if (error != null) {
-        new ErrorView(error).writeln();
+        new ErrorView().writeln(error.ordinal());
         proposedCombination.getColors().clear();
+      } else {
+        this.session.addProposedCombination(proposedCombination);
       }
+
     } while (error != null);
 
-    return proposedCombination;
   }
 
 }

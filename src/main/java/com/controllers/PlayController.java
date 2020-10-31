@@ -1,67 +1,42 @@
 package com.controllers;
 
-import com.models.ProposedCombination;
-import com.models.Result;
+import java.util.HashMap;
+import java.util.Map;
 import com.models.Session;
+import com.utils.Command;
+import com.utils.Menu;
+import com.views.ActionCommand;
+import com.views.MessageView;
 
-public class PlayController extends UseCaseController implements AcceptorController {
+public class PlayController extends Controller {
 
-  private ActionController actionController;
+  private Map<Command, Controller> controllers;
 
-  private UndoController undoController;
+  private ActionCommand actionCommand;
 
-  private RedoController redoController;
+  private Menu menu;
 
   public PlayController(Session session) {
     super(session);
-    this.actionController = new ActionController(session);
-    this.undoController = new UndoController(session);
-    this.redoController = new RedoController(session);
-  }
 
-  public boolean isWinner() {
-    return this.actionController.isWinner();
-  }
+    MessageView.TITLE.writeln();
+    this.controllers = new HashMap<Command, Controller>();
 
-  public boolean isLooser() {
-    return this.actionController.isLooser();
-  }
+    ProposedCombinationController proposedCombinationController =
+        new ProposedCombinationController(this.session);
+    this.actionCommand = new ActionCommand();
 
-  public Result getResult(int i) {
-    return this.actionController.getResult(i);
-  }
+    this.controllers.put(this.actionCommand, proposedCombinationController);
 
-  public ProposedCombination getProposedCombination(int i) {
-    return this.actionController.getProposedCombination(i);
-  }
+    this.menu = new Menu(this.controllers.keySet());
 
-  public int getAttempts() {
-    return this.actionController.getAttempts();
-  }
-
-  public void addProposedCombination(ProposedCombination proposedCombination) {
-    this.actionController.addProposedCombination(proposedCombination);
-  }
-
-  public void undo() {
-    this.undoController.undo();
-  }
-
-  public boolean undoable() {
-    return this.undoController.undoable();
-  }
-
-  public void redo() {
-    this.redoController.redo();
-  }
-
-  public boolean redoable() {
-    return this.redoController.redoable();
   }
 
   @Override
-  public void accept(ControllerVisitor controllerVisitor) {
-    controllerVisitor.visit(this);
+  public void control() {
+    this.actionCommand.setActive(true);
+    this.controllers.get(this.menu.execute()).control();
   }
+
 
 }
