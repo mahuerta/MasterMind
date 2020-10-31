@@ -52,24 +52,4 @@ public class Game {
     return this.results.get(position);
   }
 
-  public GameMemento createMemento() {
-    GameMemento memento = new GameMemento(this.attempts);
-    for (int i = 0; i < this.proposedCombinations.size(); i++) {
-      memento.set(this.proposedCombinations.get(i).copy(), this.results.get(i).copy());
-    }
-    return memento;
-  }
-
-  public void set(GameMemento memento) {
-    this.attempts = memento.getAttempts();
-    this.proposedCombinations = new ArrayList<ProposedCombination>();
-    this.results = new ArrayList<Result>();
-
-    for (int i = 0; i < memento.getSize(); i++) {
-      this.proposedCombinations.add(memento.getProposedCombination(i).copy());
-      this.results.add(memento.getResult(i).copy());
-    }
-
-  }
-
 }

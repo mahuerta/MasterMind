@@ -10,11 +10,11 @@ import com.views.MessageView;
 import com.views.ResultView;
 import com.views.SecretCombinationView;
 
-public abstract class InGameController extends Controller {
+public abstract class GameController extends Controller {
 
   private GameView gameView;
 
-  InGameController(Session session) {
+  GameController(Session session) {
     super(session);
     this.gameView = new GameView();
   }

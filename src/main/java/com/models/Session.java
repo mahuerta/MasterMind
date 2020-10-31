@@ -4,12 +4,10 @@ public class Session {
 
   private State state;
   private Game game;
-  private Registry registry;
 
   public Session() {
     this.state = new State();
     this.game = new Game();
-    this.registry = new Registry(this.game);
   }
 
   public boolean isWinner() {
@@ -34,7 +32,6 @@ public class Session {
 
   public void addProposedCombination(ProposedCombination proposedCombination) {
     this.game.addProposedCombination(proposedCombination);
-    this.registry.registry();
   }
 
   public void next() {
@@ -47,24 +44,7 @@ public class Session {
 
   public void reset() {
     this.game.reset();
-    this.registry.reset();
     this.state.reset();
-  }
-
-  public void undo() {
-    this.registry.undo();
-  }
-
-  public boolean undoable() {
-    return this.registry.undoable();
-  }
-
-  public void redo() {
-    this.registry.redo();
-  }
-
-  public boolean redoable() {
-    return this.registry.redoable();
   }
 
 }

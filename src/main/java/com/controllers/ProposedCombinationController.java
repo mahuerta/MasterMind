@@ -11,7 +11,7 @@ import com.views.ErrorView;
 import com.views.MessageView;
 import com.views.ProposedCombinationView;
 
-public class ProposedCombinationController extends InGameController {
+public class ProposedCombinationController extends GameController {
 
   ProposedCombinationController(Session session) {
     super(session);
@@ -30,10 +30,12 @@ public class ProposedCombinationController extends InGameController {
         error = Error.WRONG_LENGTH;
       } else {
         for (int i = 0; i < characters.length(); i++) {
-          Color color = Color.values()[ColorView.getInstance(characters.charAt(i))];
-          if (color == null) {
+          Integer instance = ColorView.getInstance(characters.charAt(i));
+          if (instance == null) {
             error = Error.WRONG_CHARACTERS;
           } else {
+            Color color = Color.values()[ColorView.getInstance(characters.charAt(i))];
+
             if (proposedCombination.getColors().contains(color)) {
               error = Error.DUPLICATED;
             } else {
