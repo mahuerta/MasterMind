@@ -1,4 +1,4 @@
-<h1 align="center">Solucion mvp.pm.withComposite Mastermind   👨🏻‍💻   </h1>
+<h1 align="center">Solucion mvp.pm.withoutProxy Mastermind   👨🏻‍💻   </h1>
 
 Esta versión está realizada a partir de la solución entregada de la práctica en la rama [mvp.pm.withComposite](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withComposite).
 
