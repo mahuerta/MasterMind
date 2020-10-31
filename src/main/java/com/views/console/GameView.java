@@ -13,6 +13,9 @@ public class GameView {
   }
 
   void write() {
+    Console.instance().writeln();
+
+    new SecretCombinationView().writeln();
 
     Console.instance().writeln();
     Message.ATTEMPTS.writeln(playController.getAttempts());

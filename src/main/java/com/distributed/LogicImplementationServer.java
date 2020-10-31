@@ -11,7 +11,6 @@ import com.distributed.dispatchers.ProposeCombinationDispatcher;
 import com.distributed.dispatchers.RedoDispatcher;
 import com.distributed.dispatchers.RedoableDispatcher;
 import com.distributed.dispatchers.ResumeDispatcher;
-import com.distributed.dispatchers.StartDispatcher;
 import com.distributed.dispatchers.StateDispatcher;
 import com.distributed.dispatchers.UndoDispatcher;
 import com.distributed.dispatchers.UndoableDispatcher;
@@ -21,8 +20,6 @@ import com.distributed.dispatchers.WinnerDispatcher;
 public class LogicImplementationServer extends LogicImplementation {
 
   public void createDispatchers(DispatcherPrototype dispatcherPrototype) {
-    dispatcherPrototype.add(FrameType.START,
-        new StartDispatcher(this.startControllerImplementation));
     dispatcherPrototype.add(FrameType.STATE,
         new StateDispatcher(this.playControllerImplementation));
     dispatcherPrototype.add(FrameType.UNDO, new UndoDispatcher(this.playControllerImplementation));
