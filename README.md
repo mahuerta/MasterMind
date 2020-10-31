@@ -35,6 +35,10 @@ Puedes encontrar más información en los siguientes enlaces:
 - [x] [mvp.pm.withoutDoubleDispatching](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withoutDoubleDispatching)
 - [x] [mvp.pm.withDoubleDispatching](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withDoubleDispatching) *
 - [x] [mvp.pm.withComposite](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withComposite)
+- [x] [mvp.pm.withoutProxy](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withoutProxy)
+- [x] [mvp.pm.withProxy](https://github.com/mahuerta/MasterMind/tree/mvp.pm.withProxy)
+- [x] [mvp.pv](https://github.com/mahuerta/MasterMind/tree/mvp.pv)
+
 
 - [ ] Next Implementations
 
