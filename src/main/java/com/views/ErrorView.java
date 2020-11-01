@@ -8,10 +8,8 @@ public class ErrorView extends WithConsoleView {
       {"Repeated colors", "Wrong colors, they must be: " + ColorView.allInitials(),
           "Wrong proposed combination length"};
 
-
   public void writeln(int i) {
     this.console.writeln(ErrorView.MESSAGES[i]);
   }
-
 
 }
